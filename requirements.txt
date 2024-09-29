@@ -1,0 +1,11 @@
+keras
+imutils
+opencv-python
+numpy
+matplotlib
+openpyxl
+pytesseract
+pillow
+selenium
+webdriver-manager
+scikit-learn

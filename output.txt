@@ -1,0 +1,2812 @@
+Directory Tree:
+VTU-Result_Scraper-CAPTCHA_Bypass-main/
+    LICENSE
+    README.md
+    captcha_solver.py
+    cgpa.py
+    excel_file.py
+    helpers.py
+    marks.py
+    requirements.txt
+    result_updater.py
+    reval_scraper.py
+    scraper.py
+    .bashrch
+    .bashrc
+    Data\Captcha\unsolved.png
+    Data\Captcha\semisolved.png
+    Data\Captcha\solved.png
+    output-dir.py
+    output.txt
+    Data/
+        Completed.txt
+        Marks.xlsx
+        Results.txt
+        Reval_Results.txt
+        Subject_Codes.txt
+        USN_Data.txt
+        Captcha/
+            semisolved.png
+            solved.png
+            unsolved.png
+        Captcha_Trained_Model/
+            captcha_model.hdf5
+            model_labels.dat
+        readme_data/
+            Usn_data_demo.png
+            result_demo.png
+            subject_code_demo.png
+    __pycache__/
+        captcha_solver.cpython-312.pyc
+        helpers.cpython-312.pyc
+
+Outputting file contents...
+
+File: LICENSE
+--------------------------------------------------------------------------------
+                                 Apache License
+                           Version 2.0, January 2004
+                        http://www.apache.org/licenses/
+
+   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+   1. Definitions.
+
+      "License" shall mean the terms and conditions for use, reproduction,
+      and distribution as defined by Sections 1 through 9 of this document.
+
+      "Licensor" shall mean the copyright owner or entity authorized by
+      the copyright owner that is granting the License.
+
+      "Legal Entity" shall mean the union of the acting entity and all
+      other entities that control, are controlled by, or are under common
+      control with that entity. For the purposes of this definition,
+      "control" means (i) the power, direct or indirect, to cause the
+      direction or management of such entity, whether by contract or
+      otherwise, or (ii) ownership of fifty percent (50%) or more of the
+      outstanding shares, or (iii) beneficial ownership of such entity.
+
+      "You" (or "Your") shall mean an individual or Legal Entity
+      exercising permissions granted by this License.
+
+      "Source" form shall mean the preferred form for making modifications,
+      including but not limited to software source code, documentation
+      source, and configuration files.
+
+      "Object" form shall mean any form resulting from mechanical
+      transformation or translation of a Source form, including but
+      not limited to compiled object code, generated documentation,
+      and conversions to other media types.
+
+      "Work" shall mean the work of authorship, whether in Source or
+      Object form, made available under the License, as indicated by a
+      copyright notice that is included in or attached to the work
+      (an example is provided in the Appendix below).
+
+      "Derivative Works" shall mean any work, whether in Source or Object
+      form, that is based on (or derived from) the Work and for which the
+      editorial revisions, annotations, elaborations, or other modifications
+      represent, as a whole, an original work of authorship. For the purposes
+      of this License, Derivative Works shall not include works that remain
+      separable from, or merely link (or bind by name) to the interfaces of,
+      the Work and Derivative Works thereof.
+
+      "Contribution" shall mean any work of authorship, including
+      the original version of the Work and any modifications or additions
+      to that Work or Derivative Works thereof, that is intentionally
+      submitted to Licensor for inclusion in the Work by the copyright owner
+      or by an individual or Legal Entity authorized to submit on behalf of
+      the copyright owner. For the purposes of this definition, "submitted"
+      means any form of electronic, verbal, or written communication sent
+      to the Licensor or its representatives, including but not limited to
+      communication on electronic mailing lists, source code control systems,
+      and issue tracking systems that are managed by, or on behalf of, the
+      Licensor for the purpose of discussing and improving the Work, but
+      excluding communication that is conspicuously marked or otherwise
+      designated in writing by the copyright owner as "Not a Contribution."
+
+      "Contributor" shall mean Licensor and any individual or Legal Entity
+      on behalf of whom a Contribution has been received by Licensor and
+      subsequently incorporated within the Work.
+
+   2. Grant of Copyright License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      copyright license to reproduce, prepare Derivative Works of,
+      publicly display, publicly perform, sublicense, and distribute the
+      Work and such Derivative Works in Source or Object form.
+
+   3. Grant of Patent License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      (except as stated in this section) patent license to make, have made,
+      use, offer to sell, sell, import, and otherwise transfer the Work,
+      where such license applies only to those patent claims licensable
+      by such Contributor that are necessarily infringed by their
+      Contribution(s) alone or by combination of their Contribution(s)
+      with the Work to which such Contribution(s) was submitted. If You
+      institute patent litigation against any entity (including a
+      cross-claim or counterclaim in a lawsuit) alleging that the Work
+      or a Contribution incorporated within the Work constitutes direct
+      or contributory patent infringement, then any patent licenses
+      granted to You under this License for that Work shall terminate
+      as of the date such litigation is filed.
+
+   4. Redistribution. You may reproduce and distribute copies of the
+      Work or Derivative Works thereof in any medium, with or without
+      modifications, and in Source or Object form, provided that You
+      meet the following conditions:
+
+      (a) You must give any other recipients of the Work or
+          Derivative Works a copy of this License; and
+
+      (b) You must cause any modified files to carry prominent notices
+          stating that You changed the files; and
+
+      (c) You must retain, in the Source form of any Derivative Works
+          that You distribute, all copyright, patent, trademark, and
+          attribution notices from the Source form of the Work,
+          excluding those notices that do not pertain to any part of
+          the Derivative Works; and
+
+      (d) If the Work includes a "NOTICE" text file as part of its
+          distribution, then any Derivative Works that You distribute must
+          include a readable copy of the attribution notices contained
+          within such NOTICE file, excluding those notices that do not
+          pertain to any part of the Derivative Works, in at least one
+          of the following places: within a NOTICE text file distributed
+          as part of the Derivative Works; within the Source form or
+          documentation, if provided along with the Derivative Works; or,
+          within a display generated by the Derivative Works, if and
+          wherever such third-party notices normally appear. The contents
+          of the NOTICE file are for informational purposes only and
+          do not modify the License. You may add Your own attribution
+          notices within Derivative Works that You distribute, alongside
+          or as an addendum to the NOTICE text from the Work, provided
+          that such additional attribution notices cannot be construed
+          as modifying the License.
+
+      You may add Your own copyright statement to Your modifications and
+      may provide additional or different license terms and conditions
+      for use, reproduction, or distribution of Your modifications, or
+      for any such Derivative Works as a whole, provided Your use,
+      reproduction, and distribution of the Work otherwise complies with
+      the conditions stated in this License.
+
+   5. Submission of Contributions. Unless You explicitly state otherwise,
+      any Contribution intentionally submitted for inclusion in the Work
+      by You to the Licensor shall be under the terms and conditions of
+      this License, without any additional terms or conditions.
+      Notwithstanding the above, nothing herein shall supersede or modify
+      the terms of any separate license agreement you may have executed
+      with Licensor regarding such Contributions.
+
+   6. Trademarks. This License does not grant permission to use the trade
+      names, trademarks, service marks, or product names of the Licensor,
+      except as required for reasonable and customary use in describing the
+      origin of the Work and reproducing the content of the NOTICE file.
+
+   7. Disclaimer of Warranty. Unless required by applicable law or
+      agreed to in writing, Licensor provides the Work (and each
+      Contributor provides its Contributions) on an "AS IS" BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+      implied, including, without limitation, any warranties or conditions
+      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+      PARTICULAR PURPOSE. You are solely responsible for determining the
+      appropriateness of using or redistributing the Work and assume any
+      risks associated with Your exercise of permissions under this License.
+
+   8. Limitation of Liability. In no event and under no legal theory,
+      whether in tort (including negligence), contract, or otherwise,
+      unless required by applicable law (such as deliberate and grossly
+      negligent acts) or agreed to in writing, shall any Contributor be
+      liable to You for damages, including any direct, indirect, special,
+      incidental, or consequential damages of any character arising as a
+      result of this License or out of the use or inability to use the
+      Work (including but not limited to damages for loss of goodwill,
+      work stoppage, computer failure or malfunction, or any and all
+      other commercial damages or losses), even if such Contributor
+      has been advised of the possibility of such damages.
+
+   9. Accepting Warranty or Additional Liability. While redistributing
+      the Work or Derivative Works thereof, You may choose to offer,
+      and charge a fee for, acceptance of support, warranty, indemnity,
+      or other liability obligations and/or rights consistent with this
+      License. However, in accepting such obligations, You may act only
+      on Your own behalf and on Your sole responsibility, not on behalf
+      of any other Contributor, and only if You agree to indemnify,
+      defend, and hold each Contributor harmless for any liability
+      incurred by, or claims asserted against, such Contributor by reason
+      of your accepting any such warranty or additional liability.
+
+   END OF TERMS AND CONDITIONS
+
+   APPENDIX: How to apply the Apache License to your work.
+
+      To apply the Apache License to your work, attach the following
+      boilerplate notice, with the fields enclosed by brackets "[]"
+      replaced with your own identifying information. (Don't include
+      the brackets!)  The text should be enclosed in the appropriate
+      comment syntax for the file format. We also recommend that a
+      file or class name and description of purpose be included on the
+      same "printed page" as the copyright notice for easier
+      identification within third-party archives.
+
+   Copyright [yyyy] [name of copyright owner]
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+
+--------------------------------------------------------------------------------
+
+File: README.md
+--------------------------------------------------------------------------------
+# VTU Result Scraper with CAPTCHA Bypass
+
+This is a set of python programs created to scrape the results of the students whose USN is provided to program which automatically solves the CAPTCHA and stores the result in a text file.
+
+## Features
+
+This contains three main python scripts which are designed to perfrom as follows:
+
+- scraper.py which perfroms the actual scraping of the data and storing the data in the text file.
+- excel_file.py which organizes the data in the text file into an Excel Workbook.
+- cgpa.py which adds the cgpa of the individuals into the Excel Workbook.
+
+## Prerequisites
+
+- Needs Chrome Web browser with latest version of supporting ChromeDriver.ChromeDriver must also be in PATH.
+- Pytesseract installed on the PC and in PATH.
+- In case the the above mentioned libraries are not on path then you will have to specify the installed path of these libraries in the `scraper.py` program.
+
+## Installation
+
+Follow these steps to install the project to run on your machine.
+
+- Clone this repository into your required directory.
+
+- Open a terminal the directory and then run the following command:
+
+```bash
+  pip install -r requirements.txt
+```
+
+## Running The Program
+
+- Run the `scraper.py` progam and provide the USN range input to the program. It supports either the USN input as a text file or as a range of USN.The USN values if provided as a text file must be as follows:
+
+ <p align="center">
+  <img src="Data/readme_data/Usn_data_demo.png" alt="USN Data Demo">
+</p>
+
+- Wait for the scraper program to finish grabbing the results from the website.
+
+- In case you wish to have it in an organized manner. Run the `excel_file.py` program to store the result in an excel sheet. Do note that you have to provide the subject codes and their respective credits in the `subject_codes.txt` file.
+  An example of it is shown below:
+
+ <p align="center">
+  <img src="Data/readme_data/subject_code_demo.png" alt="Subject Code Demo">
+</p>
+
+- If you wish to add the CGPA of the students too into the Excel Sheet then run `cgpa.py` which stores the CGPA into `Marks.xlsx` file.
+
+<p align="center">
+  <img src="Data/readme_data/result_demo.png" alt="Result Demo">
+</p>
+
+## Basic Troubleshooting
+
+There can few minor issues one can expect to encounter, a few of which are as follows:
+
+- ChromeDriver and Pytesserct not on PATH which is mentioned in the prerequisites
+  Section.
+- Errors regarding loading the Excel File. Do make sure that the excel file is closed and is empty before running the `excel_file.py` program.
+- There a two CAPTCHA solving techniques implemented, one of which is based on Pytesseract and the other one is a deep trained model whose files have been added in the data folder. It is not a 100% efficient in solving the CAPTCHA but manages to have a high accuracy.
+
+## Update -23/09/23
+
+Added a feature to capture the reval results of the students.
+
+- Run `reval_scraper.py` to get the reval results of the students.
+- Run `result_updater.py` to update the results of the students with the reval results.
+- Then one can run `excel_file.py` to generate the excel data for the marks and then `cgpa.py` to enter the cgpa.
+
+## Update -23/02/24
+
+Added a feature to compute the marks and overall percentage of the students.
+
+- Run `marks.py` to get the total marks of the students.
+- It is suggested to run `marks.py` after running the `cgpa.py` program as it is written to be run in that manner. 
+
+## Issues
+
+- The `completed.txt`file does not work perfectly as intended. It is a minor bug and does not compromise functionality. It is advised to start the program and not stop it in between as the program cannot retain the last USN which it stopped at.
+
+--------------------------------------------------------------------------------
+
+File: captcha_solver.py
+--------------------------------------------------------------------------------
+from keras.models import load_model
+from helpers import resize_to_fit
+from imutils import paths
+import numpy as np
+import imutils
+import cv2
+import pickle
+from matplotlib import pyplot
+def captcha_og():
+    MODEL_FILENAME = "Data\Captcha_Trained_Model\captcha_model.hdf5"
+    MODEL_LABELS_FILENAME = "Data\Captcha_Trained_Model\model_labels.dat"
+    CAPTCHA_IMAGE = "Data\Captcha\solved.png"
+
+
+# Load up the model labels (so we can translate model predictions to actual letters)
+    with open(MODEL_LABELS_FILENAME, "rb") as f:
+        lb = pickle.load(f)
+
+# Load the trained neural network
+    model = load_model(MODEL_FILENAME)
+# loop over the image paths
+    #print(value)
+
+    image = cv2.imread(CAPTCHA_IMAGE)
+    image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+
+    # Add some extra padding around the image
+    #image = cv2.copyMakeBorder(image, 20, 20, 20, 20, cv2.BORDER_REPLICATE)
+
+    # threshold the image (convert it to pure black and white)
+    thresh = cv2.threshold(image, 0, 255, cv2.THRESH_BINARY_INV | cv2.THRESH_OTSU)[1]
+
+    # find the contours (continuous blobs of pixels) the image
+    contours = cv2.findContours(thresh.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+# Hack for compatibility with different OpenCV versions
+    contours = contours[1] if imutils.is_cv3() else contours[0]
+
+    letter_image_regions = []
+
+    # Now we can loop through each of the four contours and extract the letter
+    # inside of each one
+    for contour in contours:
+        # Get the rectangle that contains the contour
+         (x, y, w, h) = cv2.boundingRect(contour)
+
+        # Compare the width and height of the contour to detect letters that
+        # are conjoined into one chunk
+         if w<10 and h <10:
+           pass
+         elif w/h >=1.3 and w/h <1.38:
+            half_width = int(w / 2)
+            letter_image_regions.append((x, y, half_width, h))
+            letter_image_regions.append((x + half_width, y, half_width, h))    
+         elif w/h >1.44 and w/h < 1.52:
+            half_width = int(w / 2)
+            letter_image_regions.append((x, y, half_width, h))
+            letter_image_regions.append((x + half_width, y, half_width, h))
+         elif w / h > 1.6:
+            # This contour is too wide to be a single letter!
+            # Split it in half into two letter regions!
+            half_width = int(w / 2)
+            letter_image_regions.append((x, y, half_width, h))
+            letter_image_regions.append((x + half_width, y, half_width, h))
+         else:
+            # This is a normal letter by itself
+            letter_image_regions.append((x, y, w, h))
+            #print(x,y,w,h)
+            #print(letter_image_regions)
+    # If we found more or less than 4 letters in the captcha, our letter extraction
+    # didn't work correcly. Skip the image instead of saving bad training data!
+            #print((letter_image_regions))
+    if len(letter_image_regions) < 6:
+            #continue
+        pass
+
+    # Sort the detected letter images based on the x coordinate to make sure
+    # we are processing them from left-to-right so we match the right image
+    # with the right letter
+    letter_image_regions = sorted(letter_image_regions, key=lambda x: x[0])
+
+    # Create an output image and a list to hold our predicted letters
+    output = cv2.merge([image] * 3)
+    predictions = []
+
+    # loop over the lektters
+    for letter_bounding_box in letter_image_regions:
+        # Grab the coordinates of the letter in the image
+         x, y, w, h = letter_bounding_box
+         x1,x2,y1,y2=x-2,x+w+2,y-2,y+h+2
+         if x1 < 0:
+            x1=0
+         if x2 < 0:
+            x2=0
+         if y1 < 0:
+            y1=0
+         if y2 < 0:
+            y2=0
+        # Extract the letter from the original image with a 2-pixel margin around the edge
+         letter_image = image[y1:y2,x1:x2]
+        
+
+        # Re-size the letter image to 20x20 pixels to match training data
+         letter_image = resize_to_fit(letter_image, 50, 50)
+
+        # Turn the single image into a 4d list of images to make Keras happy
+         letter_image = np.expand_dims(letter_image, axis=2)
+         letter_image = np.expand_dims(letter_image, axis=0)
+
+        # Ask the neural network to make a prediction
+         prediction = model.predict(letter_image)
+
+        # Convert the one-hot-encoded prediction back to a normal letter
+         letter = lb.inverse_transform(prediction)[0]
+         predictions.append(letter)
+
+        # draw the prediction on the output image
+         cv2.rectangle(output, (x - 2, y - 2), (x + w + 4, y + h + 4), (0, 255, 0), 1)
+         cv2.putText(output, letter, (x - 5, y - 5), cv2.FONT_HERSHEY_SIMPLEX, 0.55, (0, 255, 0), 2)
+
+    # Print the captcha's text
+    captcha_text = "".join(predictions)
+    #print("CAPTCHA text is: {}".format(captcha_text))
+    if len(captcha_text) >6:
+        captcha_text=captcha_text[0:6]
+
+    # Show the annotated image
+    #cv2.imshow("Output", output)
+    #cv2.waitKey()
+    #pyplot.imshow(output)
+    #pyplot.show()
+    print(captcha_text)
+    return(captcha_text)
+--------------------------------------------------------------------------------
+
+File: cgpa.py
+--------------------------------------------------------------------------------
+my_csv = open(r"Data\Subject_Codes.txt","r") #This file contains subjects and their credits    
+my_text = my_csv.read()
+sub_list = my_text.split(",")
+sub_list = [sub_list.strip() for sub_list in sub_list]
+#print(sub_list)
+sub_code=[]# contains all the subject codes
+sub_grade=[]# contains the credits for the above sujects
+
+for i in range(0,len(sub_list)):
+    if(i%2==0):
+        sub_code.append(sub_list[i])
+    else:
+        sub_grade.append(int(sub_list[i]))
+#print(sub_code)
+#print(sub_grade)
+
+#importing this at the top of the program causes issues with reading the text file
+import openpyxl
+from openpyxl import *
+from openpyxl.utils import column_index_from_string
+from openpyxl.utils.cell import column_index_from_string, get_column_letter
+from openpyxl.styles import numbers
+
+
+xl_file=load_workbook(r"Data\Marks.xlsx")#opens the marks excel sheet
+sheets=xl_file.sheetnames
+#print(sheets)
+#The below piece of code generates the grade point  for each subject and the no of credits and stores it in the corresponding rows in each worksheet
+for sheet in sheets:
+    worksheet=xl_file[sheet]
+    subject_grade_index=sub_code.index(str(sheet))
+    for row  in range(1,worksheet.max_row+1):
+        marks=worksheet['E'+str(row)].value
+        if marks >= 90 and marks <= 100:
+            grade_point=10
+        elif marks >=80 and marks < 90:
+            grade_point=9
+        elif marks >=70 and marks < 80:
+            grade_point=8
+        elif marks >=60 and marks < 70:
+            grade_point=7
+        elif marks >=50 and marks < 60:
+            grade_point=6
+        elif marks >=45 and marks < 50:
+            grade_point=5
+        elif marks >=40 and marks < 45:
+            grade_point=4
+        elif marks < 40 :
+            grade_point=0
+        #print(marks)
+        worksheet['G'+str(row)]=grade_point*sub_grade[subject_grade_index]
+        worksheet['H'+str(row)]=sub_grade[subject_grade_index]
+xl_file.save(r"Data\Marks.xlsx")
+'''The below piece of code handles creating a new worksheet named CGPA and storing the 
+    usn and name of each student in that worksheet followed by adding their actual cgpa into the respective cell
+'''
+name_usn_dict={}#this dictionary holds the usn and name data extracted from other worksheets to put into cgpa worksheet
+for sheet in sheets:
+    worksheet=xl_file[sheet]
+    for row in range (1,worksheet.max_row+1):
+        usn=worksheet['A'+str(row)].value
+        name=worksheet['B'+str(row)].value
+        #if name_usn_dict[worksheet['A'+str(row)].value] not in name_usn_dict.keys():
+        name_usn_dict[usn]=name
+name_usn_dict=sorted(name_usn_dict.items())#Sorts the name and usn of the students into an order of the usn
+#print(name_usn_dict)
+xl_file.create_sheet('CGPA')
+
+row=1
+for key,value in name_usn_dict:
+    worksheet=xl_file['CGPA']
+    worksheet['A'+str(row)]=key
+    worksheet['B'+str(row)]=value
+    cixgi=0
+    ci=0
+    #the below for loop searches for name and usn in each worksheet and adds  it to compute cgpa
+    for sheet in sheets:
+        work_1=xl_file[sheet]
+        for i in range(1,work_1.max_row+1):
+            if work_1['A'+str(i)].value==key:
+                #print('There is a match')
+                cixgi=cixgi+int(work_1['G'+str(i)].value)
+                ci=ci+int(work_1['H'+str(i)].value)
+                break
+    #print(cixgi,ci)           
+    cgpa=round(cixgi/ci,2)   
+    #print(key, cgpa)
+    worksheet['C'+str(row)]=cgpa
+    row=row+1
+for sheet in sheets:
+    worksheet=xl_file[sheet]
+    worksheet.delete_cols(idx=7,amount=2) # this removes the gradepoint values and credits stored in all the previous worksheets to represent it neatly          
+xl_file.save(r"Data\Marks.xlsx")
+--------------------------------------------------------------------------------
+
+File: excel_file.py
+--------------------------------------------------------------------------------
+#this code splits each line of the results.txt file into a element of the list
+with open(r"Data\Results.txt", 'r') as file:
+    lines = file.readlines()
+data_list = [i for i in lines if i != '\n']#to remove spacing between two usn in text file
+data_list = [data_list.strip() for data_list in data_list]
+
+#the below code stores the sbject codes and their credits into their respective lists
+my_csv = open(r"Data\Subject_Codes.txt","r")     
+my_text = my_csv.read()
+sub_list = my_text.split(",")
+sub_list = [sub_list.strip() for sub_list in sub_list]
+#print(sub_list)
+sub_code=[]
+sub_grade=[]
+
+for i in range(0,len(sub_list)):
+    if(i%2==0):
+        sub_code.append(sub_list[i])
+    else:
+        sub_grade.append(int(sub_list[i]))
+#print(sub_code)
+#print(sub_grade)
+import openpyxl
+from openpyxl import *
+from openpyxl.utils import column_index_from_string
+from openpyxl.utils.cell import column_index_from_string, get_column_letter
+from openpyxl.styles import numbers
+
+
+wb=load_workbook(r"Data\Marks.xlsx")
+sheets=wb.sheetnames#Get the list of all the sheets present in the xl workbook
+for sheet in sheets:
+    wb.remove(wb[str(sheet)])# removes all the existing sheets in the workbook
+for sub in sub_code:
+    wb.create_sheet(str(sub))#creates a sheet for the suject in the sub_code list
+    worksheet = wb[str(sub)]#loads the above created worksheet
+    worksheet_row=1         #starts from the first  row to store the data
+    for list_element in data_list: #goes through all the elemtns in the data_list which contains all the marks detail
+        if sub in list_element:                                 #it checks if the selected subject is the one which is present in the list_element
+            worksheet["A"+str(worksheet_row)] =list_element     #if yes it stores the data and then increases the row variable
+            worksheet_row=worksheet_row+1
+    '''Now all the data that is put into the excel sheets is present in the column 1 so now we split them 
+        and store them in the consecutive columns. After storing them in the successive colums we remove the subject code and subject columns from them 
+        as it is not necessary to have them and then save the workbook'''
+    for row in worksheet.iter_rows(min_row=1, max_row=worksheet.max_row, min_col=1, max_col=1): 
+        for cell in row:
+            col_index = cell.col_idx
+            col_letter = get_column_letter(col_index + 1)
+            values = cell.value.split(",")
+            for i, value in enumerate(values):
+                cell = worksheet.cell(row=cell.row, column=col_index + i)
+                if value.isnumeric():
+                    cell.value = int(value)
+                    cell.number_format = numbers.FORMAT_NUMBER
+                else:
+                    cell.value = value
+    worksheet.delete_cols(3,amount=2)#deleting subject name and its code
+    
+wb.save(r"Data\Marks.xlsx")
+
+--------------------------------------------------------------------------------
+
+File: helpers.py
+--------------------------------------------------------------------------------
+import imutils
+import cv2
+
+
+def resize_to_fit(image, width, height):
+    """
+    A helper function to resize an image to fit within a given size
+    :param image: image to resize
+    :param width: desired width in pixels
+    :param height: desired height in pixels
+    :return: the resized image
+    """
+
+    # grab the dimensions of the image, then initialize
+    # the padding values
+    (h, w) = image.shape[:2]
+
+    # if the width is greater than the height then resize along
+    # the width
+    if w > h:
+        image = imutils.resize(image, width=width)
+
+    # otherwise, the height is greater than the width so resize
+    # along the height
+    else:
+        image = imutils.resize(image, height=height)
+
+    # determine the padding values for the width and height to
+    # obtain the target dimensions
+    padW = int((width - image.shape[1]) / 2.0)
+    padH = int((height - image.shape[0]) / 2.0)
+
+    # pad the image then apply one more resizing to handle any
+    # rounding issues
+    image = cv2.copyMakeBorder(image, padH, padH, padW, padW,
+        cv2.BORDER_REPLICATE)
+    image = cv2.resize(image, (width, height))
+    
+    # return the pre-processed image
+    return image
+--------------------------------------------------------------------------------
+
+File: marks.py
+--------------------------------------------------------------------------------
+#This is the program that is written to calculate the total marks of the student.Do run the program after caclulating the cgpa using cgpa.py
+
+import openpyxl
+from openpyxl import *
+from openpyxl.utils import column_index_from_string
+from openpyxl.utils.cell import column_index_from_string, get_column_letter
+from openpyxl.styles import numbers
+
+
+xl_file=load_workbook(r"Data\Marks.xlsx")#opens the marks excel sheet 
+sheets=xl_file.sheetnames
+sheets.remove('CGPA')
+#print(sheets)
+
+name_usn_dict={}#this dictionary holds the usn and name data extracted from other worksheets to put into cgpa worksheet
+for sheet in sheets:
+    worksheet=xl_file[sheet]
+    for row in range (1,worksheet.max_row+1):
+        usn=worksheet['A'+str(row)].value
+        name=worksheet['B'+str(row)].value
+        #if name_usn_dict[worksheet['A'+str(row)].value] not in name_usn_dict.keys():
+        name_usn_dict[usn]=name
+name_usn_dict=sorted(name_usn_dict.items())#Sorts the name and usn of the students into an order of the usn
+#print(name_usn_dict)
+xl_file.create_sheet('MARKS')
+
+
+row=1
+for key,value in name_usn_dict:
+    worksheet=xl_file['MARKS']
+    worksheet['A'+str(row)]=key
+    worksheet['B'+str(row)]=value
+    marks=0
+    total=0
+    #the below for loop searches for name and usn in each worksheet and adds  it to compute cgpa
+    for sheet in sheets:
+        work_1=xl_file[sheet]
+        for i in range(1,work_1.max_row+1):
+            if work_1['A'+str(i)].value==key:
+                #print('There is a match')
+                marks=marks+int(work_1['E'+str(i)].value)
+                total=total+100
+                break
+    #print(marks,total)           
+    percent=round((marks/total)*100,2)   
+    #print(key, percent)
+    worksheet['C'+str(row)]= marks#Use variable 'str(marks)+'/'+str(total)' to display marks in fraction
+    worksheet['D'+str(row)]=percent
+    row=row+1    
+xl_file.save(r"Data\Marks.xlsx")
+--------------------------------------------------------------------------------
+
+File: requirements.txt
+--------------------------------------------------------------------------------
+keras
+imutils
+opencv-python
+numpy
+matplotlib
+openpyxl
+pytesseract
+pillow
+selenium
+webdriver-manager
+scikit-learn
+--------------------------------------------------------------------------------
+
+File: result_updater.py
+--------------------------------------------------------------------------------
+with open(r"Data\Results.txt", 'r') as file:
+    lines = file.readlines()
+data_list = [i for i in lines if i != '\n']#to remove spacing between two usn in text file
+existing_marks = [data_list.strip() for data_list in data_list]
+
+
+with open(r"Data\Reval_Results.txt", 'r') as file:
+    lines=file.readlines()
+data_list = [i for i in lines if i != '\n']#to remove spacing between two usn in text file
+reval_marks = [data_list.strip() for data_list in data_list]
+
+#print(existing_marks)
+#print(reval_marks)
+
+for i in range (len(existing_marks)):
+    
+    for reval in reval_marks:
+        student_data = reval.split(',')
+        #print(student_data[0:3])
+        n=",".join(student_data[0:3])
+        #print(n)
+        if n in existing_marks[i]:
+            #print(existing_marks[i],reval)
+            existing_marks[i]=reval
+   # print(existing_marks[i])
+
+with open(r"Data\Results.txt", 'w') as file:
+    prev_usn=None
+    for i in existing_marks:
+        cur_usn=i[0:13]
+        if cur_usn!=prev_usn:
+            file.write('\n')
+        file.write(i)
+        file.write('\n')
+        prev_usn=cur_usn
+--------------------------------------------------------------------------------
+
+File: reval_scraper.py
+--------------------------------------------------------------------------------
+# Importing the necessary libraries
+import cv2
+import numpy as np
+import pytesseract
+import time
+from PIL import Image
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from captcha_solver import captcha_og
+counter = 0
+usn_input_style = input('Enter the way you want to enter the USN data.\nIf you have a text file containing USN PRESS 1 \n If you have your usn list specified in the USN_Data.txt file PRESS 2 \n If you are providing range of USN PRESS 3\n')
+
+if usn_input_style == '1':
+    while True:
+        try:
+            locn = input(
+                'Provide the location of text file without any quotes\n')
+            with open(locn, 'r') as f:
+                my_list = [line.strip() for line in f]
+            break
+        except FileNotFoundError:
+            print("Invalid file location. Please try again.")
+
+elif usn_input_style == '2':
+    with open(r"Data\USN_Data.txt", 'r') as f:
+        my_list = [line.strip() for line in f]
+
+
+elif usn_input_style == '3':
+    first_bit = input('Enter the first bit of your college usn\n')
+    college = input("Enter the college code\n").upper()
+    year = input('Enter the year\n')
+    branch = input('Please enter the branch\n').upper()
+
+    while True:
+        try:
+            low = int(
+                input('Enter starting USN. If it starts from 001 enter it as 1\n'))
+            high = int(input('Enter last USN excluding Lateral Entry USN\n'))
+            lat_high = int(input(
+                'Enter last USN of lateral entry students (EX:417). If there are no lateral entry students enter 0\n'))
+            break
+        except ValueError:
+            print("Invalid input. Please enter integers only.")
+
+    my_list = []
+    if branch not in ['CS', 'EC', 'ME', 'CV', 'IS']:
+        print("Invalid branch code. Please try again.")
+    elif not year.isdigit() or int(year) < 17 or int(year) > 23:
+        print("Invalid year. Please enter an integer between 17 and 23.")
+    else:
+        for i in range(low, high+1):
+            if i < 10:
+                usn = first_bit + college + year + branch + '00' + str(i)
+            elif i < 100:
+                usn = first_bit + college + year + branch + '0' + str(i)
+            else:
+                usn = first_bit + college + year + branch + str(i)
+            my_list.append(usn)
+        if lat_high != 0:
+            for i in range(400, lat_high+1):
+                usn = first_bit + college + str(int(year)+1) + branch + str(i)
+                my_list.append(usn)
+
+
+# function to solve captcha
+def solve_captcha(driver):
+    div_element = driver.find_element_by_xpath(
+        '/html/body/div[2]/div[1]/div[2]/div/div[2]/form/div/div[2]/div[2]/div[2]/img')
+    div_element.screenshot(r'Data\Captcha\unsolved.png')
+
+    # load imge and set the bounds
+    img = cv2.imread(r'Data\Captcha\unsolved.png')
+    lower = (102, 102, 102)  # lower bound for each channel
+    upper = (125, 125, 125)  # upper bound for each channel
+
+    # create the mask and use it to change the colors
+    mask = cv2.inRange(img, lower, upper)
+    img[mask != 0] = [0, 0, 0]
+
+    # Save it
+    cv2.imwrite(r'Data\Captcha\semisolved.png', img)
+
+    img = Image.open(r'Data\Captcha\semisolved.png')  # get image
+    pixels = img.load()  # create the pixel map
+
+    for i in range(img.size[0]):  # for every pixel:
+        for j in range(img.size[1]):
+            if pixels[i, j] != (0, 0, 0):  # if not black:
+                pixels[i, j] = (255, 255, 255)  # change to white
+    # img.show()
+    img.save(r'Data\Captcha\solved.png')
+
+    # read image
+    img = cv2.imread(r'Data\Captcha\solved.png')
+
+    # configurations
+    config = ('-l eng --oem 1 --psm 3')
+
+    # pytessercat
+    pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+    text = pytesseract.image_to_string(img, config=config)
+
+    # print text
+    tes_captcha = text.split('\n')[0]
+    captcha = captcha_og()
+    if len(captcha) < 6:
+        return tes_captcha
+
+    return captcha
+
+
+student_no = len(my_list)
+
+for i in range(student_no):
+    count = 1
+    usn_no = my_list[i]
+    print("Currently trying to grab the results of "+usn_no)
+    repeat = True
+    while repeat:
+        # repeat=False
+        # configure web driver
+        options = webdriver.ChromeOptions()
+        options.add_argument('--headless')
+        options.add_argument('--no-sandbox')
+        options.add_argument('--disable-dev-shm-usage')
+
+# launch browser
+        driver = webdriver.Chrome(
+            'C:\chromedriver\chromedriver.exe', options=options)
+
+# load url
+        # add the url for the reval website page
+        url = 'https://results.vtu.ac.in/JJRVEcbcs23/index.php'
+        driver.get(url)
+        # wait for page to load
+        time.sleep(2)
+
+# solve captcha
+        captcha = solve_captcha(driver)
+# wait for result to load
+        time.sleep(2)
+
+# check if captcha is incorrect
+    # captcha_text_field = driver.find_element_by_name('captchacode')
+        if len(captcha) != 6:
+            # if captcha is incorrect, click refresh button and solve again
+            refresh_button = driver.find_element_by_xpath(
+                '/html/body/div[2]/div[1]/div[2]/div/div[2]/form/div/div[2]/div[2]/div[3]/p/a')
+            refresh_button.click()
+            time.sleep(2)
+            captcha = solve_captcha(driver)
+
+# enter usn
+        usn_text_field = driver.find_element_by_name('lns')
+        usn_text_field.send_keys(usn_no)  # CHANGE THIS LATER ON FOR DEBUGGING
+        captcha_text_field = driver.find_element_by_name('captchacode')
+        captcha_text_field.send_keys(captcha)
+
+# submit form
+        submit_button = driver.find_element_by_xpath(
+            '/html/body/div[2]/div[1]/div[2]/div/div[2]/form/div/div[2]/div[3]/div[1]/input')
+        submit_button.click()
+
+        try:
+            alert = driver.switch_to.alert
+            if alert.text == "University Seat Number is not available or Invalid..!":
+                # print("No results for : " + usn_no +" going to the next USN")
+                alert.accept()
+                driver.quit()
+                repeat = False  # proceed to next USN
+                break
+            elif alert.text == "You have not applied for reval or reval results are awaited !!!":
+                # print("No results for : " + usn_no +" going to the next USN")
+                alert.accept()
+                driver.quit()
+                repeat = False  # proceed to next USN
+                break
+            elif alert.text == "Invalid captcha code !!!":
+                # print("Invalid CAPTCHA Detected for USN : " + usn_no +".Retrying for the same USN")
+                count = count+1
+                alert.accept()
+                driver.quit()
+                continue  # repeat program for same USN again
+        except:
+            repeat = False  # proceed to next USN
+# wait for result to load
+        # time.sleep(8)
+        # element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, '/html/body/div[2]/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div[1]/div/table/tbody/tr[1]/td[2]')))
+        try:
+            element = WebDriverWait(driver, 10).until(EC.presence_of_element_located(
+                (By.XPATH, '/html/body/div[2]/form/div/div[2]/div/div/div[2]/div[1]/div/div/div[1]/div/table/tbody/tr[1]/td[2]')))
+        except:
+            # if timeout exception is raised, repeat the program for the same USN
+            count += 1
+            repeat = True
+            driver.quit()
+            continue  # repeat program for same USN again
+
+        stud_element = driver.find_element_by_xpath(
+            '/html/body/div[2]/form/div/div[2]/div/div/div[2]/div[1]/div/div/div[1]/div/table/tbody/tr[1]/td[2]')
+        
+        usn_element = driver.find_element_by_xpath(
+            '/html/body/div[2]/form/div/div[2]/div/div/div[2]/div[1]/div/div/div[1]/div/table/tbody/tr[2]/td[2]')
+        table_element = driver.find_element_by_xpath(
+            '/html/body/div[2]/form/div/div[2]/div/div/div[2]/div[1]/div/div/div[2]/div/div/div[2]/div')
+           # /html/body/div[2]/form/div/div[2]/div/div/div[2]/div[1]/div/div/div[2]/div/div/div[2]/div
+        sub_elements = table_element.find_elements_by_xpath('div')
+        num_sub_elements = len(sub_elements)
+        stud_text = stud_element.text
+        usn_text = usn_element.text
+
+        with open(r"Data\Reval_Results.txt", 'a') as file:
+            for i in range(2, num_sub_elements+1):
+                file.write(stud_text)
+                file.write(',')
+                file.write(usn_text)
+                marks=0
+                for j in [1, 2, 3, 8, 9]:
+                    data = driver.find_element_by_xpath(
+                        '/html/body/div[2]/form/div/div[2]/div/div/div[2]/div[1]/div/div/div[2]/div/div/div[2]/div/div['+str(i)+']/div['+str(j)+']')
+                    # /html/body/div[2]/form/div/div[2]/div/div/div[2]/div[1]/div/div/div[2]/div/div/div[2]/div/div['+str(i)+']/div['+str(j)+']'
+        
+                    data_text = data.text
+                    if (j==3 or j==8):
+                        
+                        marks=marks+int(data_text)
+                    file.write(',')
+                    if(j==9):
+                        file.write(str(marks))
+                        file.write(',')
+                    file.write(data_text)
+                file.write('\n')
+            file.write('\n')
+        print('Ran the program for '+str(count)+' times for this USN')
+        counter = counter+count
+        with open(r"Data\Completed.txt", 'a') as file:
+            file.write(usn_no)
+            file.write('\n')
+        file_path = r'Data\USN_Data.txt'
+        line_to_delete = usn_no+'\n'  # Replace with the line you want to delete
+
+        # Read the content of the file and store it in a list
+        with open(file_path, 'r') as file:
+            lines = file.readlines()
+
+        # Remove the line you want to delete from the list
+        lines = [line for line in lines if line != line_to_delete]
+
+        # Write the modified list back to the file
+        with open(file_path, 'w') as file:
+            file.writelines(lines)
+    # close browser
+    driver.quit()
+print("Ran for a Total of "+str(counter)+" times")
+
+--------------------------------------------------------------------------------
+
+File: scraper.py
+--------------------------------------------------------------------------------
+#Importing the necessary libraries
+import cv2
+import numpy as np
+import pytesseract
+import time
+from PIL import Image
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from captcha_solver import captcha_og
+counter=0
+usn_input_style=input('Enter the way you want to enter the USN data.\nIf you have a text file containing USN PRESS 1 \n If you have your usn list specified in the USN_Data.txt file PRESS 2 \n If you are providing range of USN PRESS 3\n')
+
+if usn_input_style == '1':
+    while True:
+        try:
+            locn = input('Provide the location of text file without any quotes\n') 
+            with open(locn, 'r') as f:
+                my_list = [line.strip() for line in f]
+            break
+        except FileNotFoundError:
+            print("Invalid file location. Please try again.")
+
+elif usn_input_style =='2':
+            with open(r"Data\USN_Data.txt",'r') as f:
+                my_list = [line.strip() for line in f]
+
+
+elif usn_input_style == '3':
+    first_bit = input('Enter the first bit of your college usn\n')
+    college = input("Enter the college code\n").upper()
+    year = input('Enter the year\n')
+    branch = input('Please enter the branch\n').upper()
+
+    while True:
+        try:
+            low = int(input('Enter starting USN. If it starts from 001 enter it as 1\n'))
+            high = int(input('Enter last USN excluding Lateral Entry USN\n'))
+            lat_high = int(input('Enter last USN of lateral entry students (EX:417). If there are no lateral entry students enter 0\n'))
+            break
+        except ValueError:
+            print("Invalid input. Please enter integers only.")
+
+    my_list = []
+    if branch not in ['CS', 'EC', 'ME', 'CV', 'IS']:
+        print("Invalid branch code. Please try again.")
+    elif not year.isdigit() or int(year) < 17 or int(year) > 23:
+        print("Invalid year. Please enter an integer between 17 and 23.")
+    else:
+        for i in range (low, high+1):
+            if i < 10:
+                usn = first_bit + college + year + branch + '00' + str(i)
+            elif i < 100:
+                usn = first_bit + college + year + branch + '0' + str(i)
+            else:
+                usn = first_bit + college + year + branch + str(i)
+            my_list.append(usn)
+        if lat_high != 0:
+            for i in range (400, lat_high+1):
+                usn = first_bit + college + str(int(year)+1) + branch + str(i)
+                my_list.append(usn)
+
+    
+#function to solve captcha
+def solve_captcha(driver):
+    div_element = driver.find_element_by_xpath('/html/body/div[2]/div[1]/div[2]/div/div[2]/form/div/div[2]/div[2]/div[2]/img')
+    div_element.screenshot(r'Data\Captcha\unsolved.png')
+
+    # load imge and set the bounds
+    img = cv2.imread(r'Data\Captcha\unsolved.png')
+    lower =(102, 102, 102) # lower bound for each channel
+    upper = (125,125, 125) # upper bound for each channel
+
+    # create the mask and use it to change the colors
+    mask = cv2.inRange(img, lower, upper)
+    img[mask != 0] = [0,0,0]
+
+    # Save it
+    cv2.imwrite(r'Data\Captcha\semisolved.png',img)
+
+    img = Image.open(r'Data\Captcha\semisolved.png') # get image
+    pixels = img.load() # create the pixel map
+
+    for i in range(img.size[0]): # for every pixel:
+        for j in range(img.size[1]):
+            if pixels[i,j] != (0,0,0): # if not black:
+                pixels[i,j] = (255, 255, 255) # change to white
+    #img.show()
+    img.save(r'Data\Captcha\solved.png')
+
+
+    # read image
+    img = cv2.imread(r'Data\Captcha\solved.png')
+
+    # configurations
+    config = ('-l eng --oem 1 --psm 3')
+
+    # pytessercat
+    pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+    text = pytesseract.image_to_string(img, config=config)
+
+    # print text
+    tes_captcha = text.split('\n')[0]
+    captcha=captcha_og()
+    if len(captcha) < 6 :
+        return tes_captcha
+
+    return captcha
+
+student_no=len(my_list)
+
+for i in range(student_no):
+    count=1
+    usn_no=my_list[i]
+    print("Currently trying to grab the results of "+usn_no)
+    repeat=True
+    while repeat:
+        #repeat=False
+        # configure web driver
+        options = webdriver.ChromeOptions()
+        #options.add_argument('--headless')
+        options.add_argument('--no-sandbox')
+        options.add_argument('--disable-dev-shm-usage')
+
+# launch browser
+        driver = webdriver.Chrome('C:\chromedriver\chromedriver.exe', options=options)
+
+# load url
+        url = 'https://results.vtu.ac.in/JJEcbcs23/resultpage.php' 
+        driver.get(url)
+        # wait for page to load
+        time.sleep(2)
+
+# solve captcha
+        captcha=solve_captcha(driver)
+# wait for result to load
+        time.sleep(2)
+
+# check if captcha is incorrect
+    #captcha_text_field = driver.find_element_by_name('captchacode')
+        if len(captcha) != 6:
+    # if captcha is incorrect, click refresh button and solve again
+            refresh_button = driver.find_element_by_xpath('/html/body/div[2]/div[1]/div[2]/div/div[2]/form/div/div[2]/div[2]/div[3]/p/a')
+            refresh_button.click()
+            time.sleep(2)
+            captcha=solve_captcha(driver)
+    
+# enter usn
+        usn_text_field = driver.find_element_by_name('lns')
+        usn_text_field.send_keys(usn_no)# CHANGE THIS LATER ON FOR DEBUGGING
+        captcha_text_field = driver.find_element_by_name('captchacode')
+        captcha_text_field.send_keys(captcha)
+
+# submit form
+        submit_button = driver.find_element_by_xpath('/html/body/div[2]/div[1]/div[2]/div/div[2]/form/div/div[2]/div[3]/div[1]/input')
+        submit_button.click()
+        
+        try:
+            alert = driver.switch_to.alert
+            if alert.text == "University Seat Number is not available or Invalid..!":
+                #print("No results for : " + usn_no +" going to the next USN")
+                alert.accept()
+                driver.quit()
+                repeat = False # proceed to next USN
+                break
+            elif alert.text == "Invalid captcha code !!!":
+                #print("Invalid CAPTCHA Detected for USN : " + usn_no +".Retrying for the same USN")
+                count=count+1
+                alert.accept()
+                driver.quit()
+                continue # repeat program for same USN again
+        except:
+            repeat = False # proceed to next USN
+# wait for result to load
+        #time.sleep(8)
+        #element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, '/html/body/div[2]/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div[1]/div/table/tbody/tr[1]/td[2]')))
+        try:
+            element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, '/html/body/div[2]/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div[1]/div/table/tbody/tr[1]/td[2]')))
+        except:
+            # if timeout exception is raised, repeat the program for the same USN
+            count += 1
+            repeat=True
+            driver.quit()
+            continue # repeat program for same USN again
+
+        stud_element = driver.find_element_by_xpath('/html/body/div[2]/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div[1]/div/table/tbody/tr[1]/td[2]')
+        usn_element = driver.find_element_by_xpath('/html/body/div[2]/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div[1]/div/table/tbody/tr[2]/td[2]')
+        table_element = driver.find_element_by_xpath('/html/body/div[2]/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div[2]/div/div/div[2]/div')
+        sub_elements = table_element.find_elements_by_xpath('div')
+        num_sub_elements = len(sub_elements)
+        stud_text = stud_element.text
+        usn_text = usn_element.text
+
+        with open(r"Data\Results.txt", 'a') as file:
+            for i in range (2,num_sub_elements+1):
+                file.write(stud_text)
+                file.write(',')
+                file.write(usn_text)
+                for j in range (1,7):
+                    data=driver.find_element_by_xpath('/html/body/div[2]/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div[2]/div/div/div[2]/div/div['+str(i)+']/div['+str(j)+']')
+                    data_text=data.text
+                    file.write(',')
+                    file.write(data_text)
+                file.write('\n')
+            file.write('\n')                
+        print('Ran the program for '+str(count)+' times for this USN')
+        counter=counter+count
+        with open(r"Data\Completed.txt", 'a') as file:
+            file.write(usn_no)
+            file.write('\n')
+        file_path = r'Data\USN_Data.txt'
+        line_to_delete = usn_no+'\n' # Replace with the line you want to delete
+
+        # Read the content of the file and store it in a list
+        with open(file_path, 'r') as file:
+            lines = file.readlines()
+    
+        # Remove the line you want to delete from the list
+        lines = [line for line in lines if line != line_to_delete]
+
+        # Write the modified list back to the file
+        with open(file_path, 'w') as file:
+            file.writelines(lines)
+    # close browser
+    driver.quit()
+print("Ran for a Total of "+str(counter)+" times")
+--------------------------------------------------------------------------------
+
+File: .bashrch
+--------------------------------------------------------------------------------
+export PATH=/home/gluonparticle/.vscode/extensions/ms-python.python-2024.14.1-linux-x64/python_files/deactivate/bash:/home/gluonparticle/Projects/.venv/bin:/home/gluonparticle/.vscode/extensions/ms-python.python-2024.14.1-linux-x64/python_files/deactivate/bash:/home/gluonparticle/Projects/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/opt/google/chrome
+
+--------------------------------------------------------------------------------
+
+File: .bashrc
+--------------------------------------------------------------------------------
+export PATH=/home/gluonparticle/.vscode/extensions/ms-python.python-2024.14.1-linux-x64/python_files/deactivate/bash:/home/gluonparticle/Projects/.venv/bin:/home/gluonparticle/.vscode/extensions/ms-python.python-2024.14.1-linux-x64/python_files/deactivate/bash:/home/gluonparticle/Projects/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/opt/google/chrome
+
+--------------------------------------------------------------------------------
+
+File: Data\Captcha\unsolved.png
+--------------------------------------------------------------------------------
+Error reading Data\Captcha\unsolved.png: 'utf-8' codec can't decode byte 0x89 in position 0: invalid start byte
+--------------------------------------------------------------------------------
+
+File: Data\Captcha\semisolved.png
+--------------------------------------------------------------------------------
+Error reading Data\Captcha\semisolved.png: 'utf-8' codec can't decode byte 0x89 in position 0: invalid start byte
+--------------------------------------------------------------------------------
+
+File: Data\Captcha\solved.png
+--------------------------------------------------------------------------------
+Error reading Data\Captcha\solved.png: 'utf-8' codec can't decode byte 0x89 in position 0: invalid start byte
+--------------------------------------------------------------------------------
+
+File: output-dir.py
+--------------------------------------------------------------------------------
+import os
+import logging
+
+# Configure logging to output to both the console and a file
+logging.basicConfig(level=logging.INFO, format='%(message)s')
+logger = logging.getLogger()
+file_handler = logging.FileHandler('output.txt')
+file_handler.setLevel(logging.INFO)
+file_handler.setFormatter(logging.Formatter('%(message)s'))
+logger.addHandler(file_handler)
+
+def print_directory_tree(root_dir, prefix=""):
+    for root, dirs, files in os.walk(root_dir):
+        level = root.replace(root_dir, '').count(os.sep)
+        indent = ' ' * 4 * (level)
+        logger.info('{}{}/'.format(indent, os.path.basename(root)))
+        sub_indent = ' ' * 4 * (level + 1)
+        for f in files:
+            logger.info('{}{}'.format(sub_indent, f))
+
+def output_file_contents(root_dir):
+    for root, dirs, files in os.walk(root_dir):
+        for file in files:
+            file_path = os.path.join(root, file)
+            relative_path = os.path.relpath(file_path, root_dir)
+            logger.info(f"\nFile: {relative_path}")
+            logger.info("-" * 80)
+            try:
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                    logger.info(content)
+            except (UnicodeDecodeError, IOError) as e:
+                logger.info(f"Error reading {relative_path}: {e}")
+            logger.info("-" * 80)
+
+def main():
+    root_dir = '/home/gluonparticle/Projects/Result-Analysis/References/VTU-Result_Scraper-CAPTCHA_Bypass-main'  # Change this to your root directory
+
+    logger.info("Directory Tree:")
+    print_directory_tree(root_dir)
+
+    logger.info("\nOutputting file contents...")
+    output_file_contents(root_dir)
+    logger.info("Done.")
+
+if __name__ == "__main__":
+    main()
+--------------------------------------------------------------------------------
+
+File: output.txt
+--------------------------------------------------------------------------------
+Directory Tree:
+VTU-Result_Scraper-CAPTCHA_Bypass-main/
+    LICENSE
+    README.md
+    captcha_solver.py
+    cgpa.py
+    excel_file.py
+    helpers.py
+    marks.py
+    requirements.txt
+    result_updater.py
+    reval_scraper.py
+    scraper.py
+    .bashrch
+    .bashrc
+    Data\Captcha\unsolved.png
+    Data\Captcha\semisolved.png
+    Data\Captcha\solved.png
+    output-dir.py
+    output.txt
+    Data/
+        Completed.txt
+        Marks.xlsx
+        Results.txt
+        Reval_Results.txt
+        Subject_Codes.txt
+        USN_Data.txt
+        Captcha/
+            semisolved.png
+            solved.png
+            unsolved.png
+        Captcha_Trained_Model/
+            captcha_model.hdf5
+            model_labels.dat
+        readme_data/
+            Usn_data_demo.png
+            result_demo.png
+            subject_code_demo.png
+    __pycache__/
+        captcha_solver.cpython-312.pyc
+        helpers.cpython-312.pyc
+
+Outputting file contents...
+
+File: LICENSE
+--------------------------------------------------------------------------------
+                                 Apache License
+                           Version 2.0, January 2004
+                        http://www.apache.org/licenses/
+
+   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+   1. Definitions.
+
+      "License" shall mean the terms and conditions for use, reproduction,
+      and distribution as defined by Sections 1 through 9 of this document.
+
+      "Licensor" shall mean the copyright owner or entity authorized by
+      the copyright owner that is granting the License.
+
+      "Legal Entity" shall mean the union of the acting entity and all
+      other entities that control, are controlled by, or are under common
+      control with that entity. For the purposes of this definition,
+      "control" means (i) the power, direct or indirect, to cause the
+      direction or management of such entity, whether by contract or
+      otherwise, or (ii) ownership of fifty percent (50%) or more of the
+      outstanding shares, or (iii) beneficial ownership of such entity.
+
+      "You" (or "Your") shall mean an individual or Legal Entity
+      exercising permissions granted by this License.
+
+      "Source" form shall mean the preferred form for making modifications,
+      including but not limited to software source code, documentation
+      source, and configuration files.
+
+      "Object" form shall mean any form resulting from mechanical
+      transformation or translation of a Source form, including but
+      not limited to compiled object code, generated documentation,
+      and conversions to other media types.
+
+      "Work" shall mean the work of authorship, whether in Source or
+      Object form, made available under the License, as indicated by a
+      copyright notice that is included in or attached to the work
+      (an example is provided in the Appendix below).
+
+      "Derivative Works" shall mean any work, whether in Source or Object
+      form, that is based on (or derived from) the Work and for which the
+      editorial revisions, annotations, elaborations, or other modifications
+      represent, as a whole, an original work of authorship. For the purposes
+      of this License, Derivative Works shall not include works that remain
+      separable from, or merely link (or bind by name) to the interfaces of,
+      the Work and Derivative Works thereof.
+
+      "Contribution" shall mean any work of authorship, including
+      the original version of the Work and any modifications or additions
+      to that Work or Derivative Works thereof, that is intentionally
+      submitted to Licensor for inclusion in the Work by the copyright owner
+      or by an individual or Legal Entity authorized to submit on behalf of
+      the copyright owner. For the purposes of this definition, "submitted"
+      means any form of electronic, verbal, or written communication sent
+      to the Licensor or its representatives, including but not limited to
+      communication on electronic mailing lists, source code control systems,
+      and issue tracking systems that are managed by, or on behalf of, the
+      Licensor for the purpose of discussing and improving the Work, but
+      excluding communication that is conspicuously marked or otherwise
+      designated in writing by the copyright owner as "Not a Contribution."
+
+      "Contributor" shall mean Licensor and any individual or Legal Entity
+      on behalf of whom a Contribution has been received by Licensor and
+      subsequently incorporated within the Work.
+
+   2. Grant of Copyright License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      copyright license to reproduce, prepare Derivative Works of,
+      publicly display, publicly perform, sublicense, and distribute the
+      Work and such Derivative Works in Source or Object form.
+
+   3. Grant of Patent License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      (except as stated in this section) patent license to make, have made,
+      use, offer to sell, sell, import, and otherwise transfer the Work,
+      where such license applies only to those patent claims licensable
+      by such Contributor that are necessarily infringed by their
+      Contribution(s) alone or by combination of their Contribution(s)
+      with the Work to which such Contribution(s) was submitted. If You
+      institute patent litigation against any entity (including a
+      cross-claim or counterclaim in a lawsuit) alleging that the Work
+      or a Contribution incorporated within the Work constitutes direct
+      or contributory patent infringement, then any patent licenses
+      granted to You under this License for that Work shall terminate
+      as of the date such litigation is filed.
+
+   4. Redistribution. You may reproduce and distribute copies of the
+      Work or Derivative Works thereof in any medium, with or without
+      modifications, and in Source or Object form, provided that You
+      meet the following conditions:
+
+      (a) You must give any other recipients of the Work or
+          Derivative Works a copy of this License; and
+
+      (b) You must cause any modified files to carry prominent notices
+          stating that You changed the files; and
+
+      (c) You must retain, in the Source form of any Derivative Works
+          that You distribute, all copyright, patent, trademark, and
+          attribution notices from the Source form of the Work,
+          excluding those notices that do not pertain to any part of
+          the Derivative Works; and
+
+      (d) If the Work includes a "NOTICE" text file as part of its
+          distribution, then any Derivative Works that You distribute must
+          include a readable copy of the attribution notices contained
+          within such NOTICE file, excluding those notices that do not
+          pertain to any part of the Derivative Works, in at least one
+          of the following places: within a NOTICE text file distributed
+          as part of the Derivative Works; within the Source form or
+          documentation, if provided along with the Derivative Works; or,
+          within a display generated by the Derivative Works, if and
+          wherever such third-party notices normally appear. The contents
+          of the NOTICE file are for informational purposes only and
+          do not modify the License. You may add Your own attribution
+          notices within Derivative Works that You distribute, alongside
+          or as an addendum to the NOTICE text from the Work, provided
+          that such additional attribution notices cannot be construed
+          as modifying the License.
+
+      You may add Your own copyright statement to Your modifications and
+      may provide additional or different license terms and conditions
+      for use, reproduction, or distribution of Your modifications, or
+      for any such Derivative Works as a whole, provided Your use,
+      reproduction, and distribution of the Work otherwise complies with
+      the conditions stated in this License.
+
+   5. Submission of Contributions. Unless You explicitly state otherwise,
+      any Contribution intentionally submitted for inclusion in the Work
+      by You to the Licensor shall be under the terms and conditions of
+      this License, without any additional terms or conditions.
+      Notwithstanding the above, nothing herein shall supersede or modify
+      the terms of any separate license agreement you may have executed
+      with Licensor regarding such Contributions.
+
+   6. Trademarks. This License does not grant permission to use the trade
+      names, trademarks, service marks, or product names of the Licensor,
+      except as required for reasonable and customary use in describing the
+      origin of the Work and reproducing the content of the NOTICE file.
+
+   7. Disclaimer of Warranty. Unless required by applicable law or
+      agreed to in writing, Licensor provides the Work (and each
+      Contributor provides its Contributions) on an "AS IS" BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+      implied, including, without limitation, any warranties or conditions
+      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+      PARTICULAR PURPOSE. You are solely responsible for determining the
+      appropriateness of using or redistributing the Work and assume any
+      risks associated with Your exercise of permissions under this License.
+
+   8. Limitation of Liability. In no event and under no legal theory,
+      whether in tort (including negligence), contract, or otherwise,
+      unless required by applicable law (such as deliberate and grossly
+      negligent acts) or agreed to in writing, shall any Contributor be
+      liable to You for damages, including any direct, indirect, special,
+      incidental, or consequential damages of any character arising as a
+      result of this License or out of the use or inability to use the
+      Work (including but not limited to damages for loss of goodwill,
+      work stoppage, computer failure or malfunction, or any and all
+      other commercial damages or losses), even if such Contributor
+      has been advised of the possibility of such damages.
+
+   9. Accepting Warranty or Additional Liability. While redistributing
+      the Work or Derivative Works thereof, You may choose to offer,
+      and charge a fee for, acceptance of support, warranty, indemnity,
+      or other liability obligations and/or rights consistent with this
+      License. However, in accepting such obligations, You may act only
+      on Your own behalf and on Your sole responsibility, not on behalf
+      of any other Contributor, and only if You agree to indemnify,
+      defend, and hold each Contributor harmless for any liability
+      incurred by, or claims asserted against, such Contributor by reason
+      of your accepting any such warranty or additional liability.
+
+   END OF TERMS AND CONDITIONS
+
+   APPENDIX: How to apply the Apache License to your work.
+
+      To apply the Apache License to your work, attach the following
+      boilerplate notice, with the fields enclosed by brackets "[]"
+      replaced with your own identifying information. (Don't include
+      the brackets!)  The text should be enclosed in the appropriate
+      comment syntax for the file format. We also recommend that a
+      file or class name and description of purpose be included on the
+      same "printed page" as the copyright notice for easier
+      identification within third-party archives.
+
+   Copyright [yyyy] [name of copyright owner]
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+
+--------------------------------------------------------------------------------
+
+File: README.md
+--------------------------------------------------------------------------------
+# VTU Result Scraper with CAPTCHA Bypass
+
+This is a set of python programs created to scrape the results of the students whose USN is provided to program which automatically solves the CAPTCHA and stores the result in a text file.
+
+## Features
+
+This contains three main python scripts which are designed to perfrom as follows:
+
+- scraper.py which perfroms the actual scraping of the data and storing the data in the text file.
+- excel_file.py which organizes the data in the text file into an Excel Workbook.
+- cgpa.py which adds the cgpa of the individuals into the Excel Workbook.
+
+## Prerequisites
+
+- Needs Chrome Web browser with latest version of supporting ChromeDriver.ChromeDriver must also be in PATH.
+- Pytesseract installed on the PC and in PATH.
+- In case the the above mentioned libraries are not on path then you will have to specify the installed path of these libraries in the `scraper.py` program.
+
+## Installation
+
+Follow these steps to install the project to run on your machine.
+
+- Clone this repository into your required directory.
+
+- Open a terminal the directory and then run the following command:
+
+```bash
+  pip install -r requirements.txt
+```
+
+## Running The Program
+
+- Run the `scraper.py` progam and provide the USN range input to the program. It supports either the USN input as a text file or as a range of USN.The USN values if provided as a text file must be as follows:
+
+ <p align="center">
+  <img src="Data/readme_data/Usn_data_demo.png" alt="USN Data Demo">
+</p>
+
+- Wait for the scraper program to finish grabbing the results from the website.
+
+- In case you wish to have it in an organized manner. Run the `excel_file.py` program to store the result in an excel sheet. Do note that you have to provide the subject codes and their respective credits in the `subject_codes.txt` file.
+  An example of it is shown below:
+
+ <p align="center">
+  <img src="Data/readme_data/subject_code_demo.png" alt="Subject Code Demo">
+</p>
+
+- If you wish to add the CGPA of the students too into the Excel Sheet then run `cgpa.py` which stores the CGPA into `Marks.xlsx` file.
+
+<p align="center">
+  <img src="Data/readme_data/result_demo.png" alt="Result Demo">
+</p>
+
+## Basic Troubleshooting
+
+There can few minor issues one can expect to encounter, a few of which are as follows:
+
+- ChromeDriver and Pytesserct not on PATH which is mentioned in the prerequisites
+  Section.
+- Errors regarding loading the Excel File. Do make sure that the excel file is closed and is empty before running the `excel_file.py` program.
+- There a two CAPTCHA solving techniques implemented, one of which is based on Pytesseract and the other one is a deep trained model whose files have been added in the data folder. It is not a 100% efficient in solving the CAPTCHA but manages to have a high accuracy.
+
+## Update -23/09/23
+
+Added a feature to capture the reval results of the students.
+
+- Run `reval_scraper.py` to get the reval results of the students.
+- Run `result_updater.py` to update the results of the students with the reval results.
+- Then one can run `excel_file.py` to generate the excel data for the marks and then `cgpa.py` to enter the cgpa.
+
+## Update -23/02/24
+
+Added a feature to compute the marks and overall percentage of the students.
+
+- Run `marks.py` to get the total marks of the students.
+- It is suggested to run `marks.py` after running the `cgpa.py` program as it is written to be run in that manner. 
+
+## Issues
+
+- The `completed.txt`file does not work perfectly as intended. It is a minor bug and does not compromise functionality. It is advised to start the program and not stop it in between as the program cannot retain the last USN which it stopped at.
+
+--------------------------------------------------------------------------------
+
+File: captcha_solver.py
+--------------------------------------------------------------------------------
+from keras.models import load_model
+from helpers import resize_to_fit
+from imutils import paths
+import numpy as np
+import imutils
+import cv2
+import pickle
+from matplotlib import pyplot
+def captcha_og():
+    MODEL_FILENAME = "Data\Captcha_Trained_Model\captcha_model.hdf5"
+    MODEL_LABELS_FILENAME = "Data\Captcha_Trained_Model\model_labels.dat"
+    CAPTCHA_IMAGE = "Data\Captcha\solved.png"
+
+
+# Load up the model labels (so we can translate model predictions to actual letters)
+    with open(MODEL_LABELS_FILENAME, "rb") as f:
+        lb = pickle.load(f)
+
+# Load the trained neural network
+    model = load_model(MODEL_FILENAME)
+# loop over the image paths
+    #print(value)
+
+    image = cv2.imread(CAPTCHA_IMAGE)
+    image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+
+    # Add some extra padding around the image
+    #image = cv2.copyMakeBorder(image, 20, 20, 20, 20, cv2.BORDER_REPLICATE)
+
+    # threshold the image (convert it to pure black and white)
+    thresh = cv2.threshold(image, 0, 255, cv2.THRESH_BINARY_INV | cv2.THRESH_OTSU)[1]
+
+    # find the contours (continuous blobs of pixels) the image
+    contours = cv2.findContours(thresh.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+# Hack for compatibility with different OpenCV versions
+    contours = contours[1] if imutils.is_cv3() else contours[0]
+
+    letter_image_regions = []
+
+    # Now we can loop through each of the four contours and extract the letter
+    # inside of each one
+    for contour in contours:
+        # Get the rectangle that contains the contour
+         (x, y, w, h) = cv2.boundingRect(contour)
+
+        # Compare the width and height of the contour to detect letters that
+        # are conjoined into one chunk
+         if w<10 and h <10:
+           pass
+         elif w/h >=1.3 and w/h <1.38:
+            half_width = int(w / 2)
+            letter_image_regions.append((x, y, half_width, h))
+            letter_image_regions.append((x + half_width, y, half_width, h))    
+         elif w/h >1.44 and w/h < 1.52:
+            half_width = int(w / 2)
+            letter_image_regions.append((x, y, half_width, h))
+            letter_image_regions.append((x + half_width, y, half_width, h))
+         elif w / h > 1.6:
+            # This contour is too wide to be a single letter!
+            # Split it in half into two letter regions!
+            half_width = int(w / 2)
+            letter_image_regions.append((x, y, half_width, h))
+            letter_image_regions.append((x + half_width, y, half_width, h))
+         else:
+            # This is a normal letter by itself
+            letter_image_regions.append((x, y, w, h))
+            #print(x,y,w,h)
+            #print(letter_image_regions)
+    # If we found more or less than 4 letters in the captcha, our letter extraction
+    # didn't work correcly. Skip the image instead of saving bad training data!
+            #print((letter_image_regions))
+    if len(letter_image_regions) < 6:
+            #continue
+        pass
+
+    # Sort the detected letter images based on the x coordinate to make sure
+    # we are processing them from left-to-right so we match the right image
+    # with the right letter
+    letter_image_regions = sorted(letter_image_regions, key=lambda x: x[0])
+
+    # Create an output image and a list to hold our predicted letters
+    output = cv2.merge([image] * 3)
+    predictions = []
+
+    # loop over the lektters
+    for letter_bounding_box in letter_image_regions:
+        # Grab the coordinates of the letter in the image
+         x, y, w, h = letter_bounding_box
+         x1,x2,y1,y2=x-2,x+w+2,y-2,y+h+2
+         if x1 < 0:
+            x1=0
+         if x2 < 0:
+            x2=0
+         if y1 < 0:
+            y1=0
+         if y2 < 0:
+            y2=0
+        # Extract the letter from the original image with a 2-pixel margin around the edge
+         letter_image = image[y1:y2,x1:x2]
+        
+
+        # Re-size the letter image to 20x20 pixels to match training data
+         letter_image = resize_to_fit(letter_image, 50, 50)
+
+        # Turn the single image into a 4d list of images to make Keras happy
+         letter_image = np.expand_dims(letter_image, axis=2)
+         letter_image = np.expand_dims(letter_image, axis=0)
+
+        # Ask the neural network to make a prediction
+         prediction = model.predict(letter_image)
+
+        # Convert the one-hot-encoded prediction back to a normal letter
+         letter = lb.inverse_transform(prediction)[0]
+         predictions.append(letter)
+
+        # draw the prediction on the output image
+         cv2.rectangle(output, (x - 2, y - 2), (x + w + 4, y + h + 4), (0, 255, 0), 1)
+         cv2.putText(output, letter, (x - 5, y - 5), cv2.FONT_HERSHEY_SIMPLEX, 0.55, (0, 255, 0), 2)
+
+    # Print the captcha's text
+    captcha_text = "".join(predictions)
+    #print("CAPTCHA text is: {}".format(captcha_text))
+    if len(captcha_text) >6:
+        captcha_text=captcha_text[0:6]
+
+    # Show the annotated image
+    #cv2.imshow("Output", output)
+    #cv2.waitKey()
+    #pyplot.imshow(output)
+    #pyplot.show()
+    print(captcha_text)
+    return(captcha_text)
+--------------------------------------------------------------------------------
+
+File: cgpa.py
+--------------------------------------------------------------------------------
+my_csv = open(r"Data\Subject_Codes.txt","r") #This file contains subjects and their credits    
+my_text = my_csv.read()
+sub_list = my_text.split(",")
+sub_list = [sub_list.strip() for sub_list in sub_list]
+#print(sub_list)
+sub_code=[]# contains all the subject codes
+sub_grade=[]# contains the credits for the above sujects
+
+for i in range(0,len(sub_list)):
+    if(i%2==0):
+        sub_code.append(sub_list[i])
+    else:
+        sub_grade.append(int(sub_list[i]))
+#print(sub_code)
+#print(sub_grade)
+
+#importing this at the top of the program causes issues with reading the text file
+import openpyxl
+from openpyxl import *
+from openpyxl.utils import column_index_from_string
+from openpyxl.utils.cell import column_index_from_string, get_column_letter
+from openpyxl.styles import numbers
+
+
+xl_file=load_workbook(r"Data\Marks.xlsx")#opens the marks excel sheet
+sheets=xl_file.sheetnames
+#print(sheets)
+#The below piece of code generates the grade point  for each subject and the no of credits and stores it in the corresponding rows in each worksheet
+for sheet in sheets:
+    worksheet=xl_file[sheet]
+    subject_grade_index=sub_code.index(str(sheet))
+    for row  in range(1,worksheet.max_row+1):
+        marks=worksheet['E'+str(row)].value
+        if marks >= 90 and marks <= 100:
+            grade_point=10
+        elif marks >=80 and marks < 90:
+            grade_point=9
+        elif marks >=70 and marks < 80:
+            grade_point=8
+        elif marks >=60 and marks < 70:
+            grade_point=7
+        elif marks >=50 and marks < 60:
+            grade_point=6
+        elif marks >=45 and marks < 50:
+            grade_point=5
+        elif marks >=40 and marks < 45:
+            grade_point=4
+        elif marks < 40 :
+            grade_point=0
+        #print(marks)
+        worksheet['G'+str(row)]=grade_point*sub_grade[subject_grade_index]
+        worksheet['H'+str(row)]=sub_grade[subject_grade_index]
+xl_file.save(r"Data\Marks.xlsx")
+'''The below piece of code handles creating a new worksheet named CGPA and storing the 
+    usn and name of each student in that worksheet followed by adding their actual cgpa into the respective cell
+'''
+name_usn_dict={}#this dictionary holds the usn and name data extracted from other worksheets to put into cgpa worksheet
+for sheet in sheets:
+    worksheet=xl_file[sheet]
+    for row in range (1,worksheet.max_row+1):
+        usn=worksheet['A'+str(row)].value
+        name=worksheet['B'+str(row)].value
+        #if name_usn_dict[worksheet['A'+str(row)].value] not in name_usn_dict.keys():
+        name_usn_dict[usn]=name
+name_usn_dict=sorted(name_usn_dict.items())#Sorts the name and usn of the students into an order of the usn
+#print(name_usn_dict)
+xl_file.create_sheet('CGPA')
+
+row=1
+for key,value in name_usn_dict:
+    worksheet=xl_file['CGPA']
+    worksheet['A'+str(row)]=key
+    worksheet['B'+str(row)]=value
+    cixgi=0
+    ci=0
+    #the below for loop searches for name and usn in each worksheet and adds  it to compute cgpa
+    for sheet in sheets:
+        work_1=xl_file[sheet]
+        for i in range(1,work_1.max_row+1):
+            if work_1['A'+str(i)].value==key:
+                #print('There is a match')
+                cixgi=cixgi+int(work_1['G'+str(i)].value)
+                ci=ci+int(work_1['H'+str(i)].value)
+                break
+    #print(cixgi,ci)           
+    cgpa=round(cixgi/ci,2)   
+    #print(key, cgpa)
+    worksheet['C'+str(row)]=cgpa
+    row=row+1
+for sheet in sheets:
+    worksheet=xl_file[sheet]
+    worksheet.delete_cols(idx=7,amount=2) # this removes the gradepoint values and credits stored in all the previous worksheets to represent it neatly          
+xl_file.save(r"Data\Marks.xlsx")
+--------------------------------------------------------------------------------
+
+File: excel_file.py
+--------------------------------------------------------------------------------
+#this code splits each line of the results.txt file into a element of the list
+with open(r"Data\Results.txt", 'r') as file:
+    lines = file.readlines()
+data_list = [i for i in lines if i != '\n']#to remove spacing between two usn in text file
+data_list = [data_list.strip() for data_list in data_list]
+
+#the below code stores the sbject codes and their credits into their respective lists
+my_csv = open(r"Data\Subject_Codes.txt","r")     
+my_text = my_csv.read()
+sub_list = my_text.split(",")
+sub_list = [sub_list.strip() for sub_list in sub_list]
+#print(sub_list)
+sub_code=[]
+sub_grade=[]
+
+for i in range(0,len(sub_list)):
+    if(i%2==0):
+        sub_code.append(sub_list[i])
+    else:
+        sub_grade.append(int(sub_list[i]))
+#print(sub_code)
+#print(sub_grade)
+import openpyxl
+from openpyxl import *
+from openpyxl.utils import column_index_from_string
+from openpyxl.utils.cell import column_index_from_string, get_column_letter
+from openpyxl.styles import numbers
+
+
+wb=load_workbook(r"Data\Marks.xlsx")
+sheets=wb.sheetnames#Get the list of all the sheets present in the xl workbook
+for sheet in sheets:
+    wb.remove(wb[str(sheet)])# removes all the existing sheets in the workbook
+for sub in sub_code:
+    wb.create_sheet(str(sub))#creates a sheet for the suject in the sub_code list
+    worksheet = wb[str(sub)]#loads the above created worksheet
+    worksheet_row=1         #starts from the first  row to store the data
+    for list_element in data_list: #goes through all the elemtns in the data_list which contains all the marks detail
+        if sub in list_element:                                 #it checks if the selected subject is the one which is present in the list_element
+            worksheet["A"+str(worksheet_row)] =list_element     #if yes it stores the data and then increases the row variable
+            worksheet_row=worksheet_row+1
+    '''Now all the data that is put into the excel sheets is present in the column 1 so now we split them 
+        and store them in the consecutive columns. After storing them in the successive colums we remove the subject code and subject columns from them 
+        as it is not necessary to have them and then save the workbook'''
+    for row in worksheet.iter_rows(min_row=1, max_row=worksheet.max_row, min_col=1, max_col=1): 
+        for cell in row:
+            col_index = cell.col_idx
+            col_letter = get_column_letter(col_index + 1)
+            values = cell.value.split(",")
+            for i, value in enumerate(values):
+                cell = worksheet.cell(row=cell.row, column=col_index + i)
+                if value.isnumeric():
+                    cell.value = int(value)
+                    cell.number_format = numbers.FORMAT_NUMBER
+                else:
+                    cell.value = value
+    worksheet.delete_cols(3,amount=2)#deleting subject name and its code
+    
+wb.save(r"Data\Marks.xlsx")
+
+--------------------------------------------------------------------------------
+
+File: helpers.py
+--------------------------------------------------------------------------------
+import imutils
+import cv2
+
+
+def resize_to_fit(image, width, height):
+    """
+    A helper function to resize an image to fit within a given size
+    :param image: image to resize
+    :param width: desired width in pixels
+    :param height: desired height in pixels
+    :return: the resized image
+    """
+
+    # grab the dimensions of the image, then initialize
+    # the padding values
+    (h, w) = image.shape[:2]
+
+    # if the width is greater than the height then resize along
+    # the width
+    if w > h:
+        image = imutils.resize(image, width=width)
+
+    # otherwise, the height is greater than the width so resize
+    # along the height
+    else:
+        image = imutils.resize(image, height=height)
+
+    # determine the padding values for the width and height to
+    # obtain the target dimensions
+    padW = int((width - image.shape[1]) / 2.0)
+    padH = int((height - image.shape[0]) / 2.0)
+
+    # pad the image then apply one more resizing to handle any
+    # rounding issues
+    image = cv2.copyMakeBorder(image, padH, padH, padW, padW,
+        cv2.BORDER_REPLICATE)
+    image = cv2.resize(image, (width, height))
+    
+    # return the pre-processed image
+    return image
+--------------------------------------------------------------------------------
+
+File: marks.py
+--------------------------------------------------------------------------------
+#This is the program that is written to calculate the total marks of the student.Do run the program after caclulating the cgpa using cgpa.py
+
+import openpyxl
+from openpyxl import *
+from openpyxl.utils import column_index_from_string
+from openpyxl.utils.cell import column_index_from_string, get_column_letter
+from openpyxl.styles import numbers
+
+
+xl_file=load_workbook(r"Data\Marks.xlsx")#opens the marks excel sheet 
+sheets=xl_file.sheetnames
+sheets.remove('CGPA')
+#print(sheets)
+
+name_usn_dict={}#this dictionary holds the usn and name data extracted from other worksheets to put into cgpa worksheet
+for sheet in sheets:
+    worksheet=xl_file[sheet]
+    for row in range (1,worksheet.max_row+1):
+        usn=worksheet['A'+str(row)].value
+        name=worksheet['B'+str(row)].value
+        #if name_usn_dict[worksheet['A'+str(row)].value] not in name_usn_dict.keys():
+        name_usn_dict[usn]=name
+name_usn_dict=sorted(name_usn_dict.items())#Sorts the name and usn of the students into an order of the usn
+#print(name_usn_dict)
+xl_file.create_sheet('MARKS')
+
+
+row=1
+for key,value in name_usn_dict:
+    worksheet=xl_file['MARKS']
+    worksheet['A'+str(row)]=key
+    worksheet['B'+str(row)]=value
+    marks=0
+    total=0
+    #the below for loop searches for name and usn in each worksheet and adds  it to compute cgpa
+    for sheet in sheets:
+        work_1=xl_file[sheet]
+        for i in range(1,work_1.max_row+1):
+            if work_1['A'+str(i)].value==key:
+                #print('There is a match')
+                marks=marks+int(work_1['E'+str(i)].value)
+                total=total+100
+                break
+    #print(marks,total)           
+    percent=round((marks/total)*100,2)   
+    #print(key, percent)
+    worksheet['C'+str(row)]= marks#Use variable 'str(marks)+'/'+str(total)' to display marks in fraction
+    worksheet['D'+str(row)]=percent
+    row=row+1    
+xl_file.save(r"Data\Marks.xlsx")
+--------------------------------------------------------------------------------
+
+File: requirements.txt
+--------------------------------------------------------------------------------
+keras
+imutils
+opencv-python
+numpy
+matplotlib
+openpyxl
+pytesseract
+pillow
+selenium
+webdriver-manager
+scikit-learn
+--------------------------------------------------------------------------------
+
+File: result_updater.py
+--------------------------------------------------------------------------------
+with open(r"Data\Results.txt", 'r') as file:
+    lines = file.readlines()
+data_list = [i for i in lines if i != '\n']#to remove spacing between two usn in text file
+existing_marks = [data_list.strip() for data_list in data_list]
+
+
+with open(r"Data\Reval_Results.txt", 'r') as file:
+    lines=file.readlines()
+data_list = [i for i in lines if i != '\n']#to remove spacing between two usn in text file
+reval_marks = [data_list.strip() for data_list in data_list]
+
+#print(existing_marks)
+#print(reval_marks)
+
+for i in range (len(existing_marks)):
+    
+    for reval in reval_marks:
+        student_data = reval.split(',')
+        #print(student_data[0:3])
+        n=",".join(student_data[0:3])
+        #print(n)
+        if n in existing_marks[i]:
+            #print(existing_marks[i],reval)
+            existing_marks[i]=reval
+   # print(existing_marks[i])
+
+with open(r"Data\Results.txt", 'w') as file:
+    prev_usn=None
+    for i in existing_marks:
+        cur_usn=i[0:13]
+        if cur_usn!=prev_usn:
+            file.write('\n')
+        file.write(i)
+        file.write('\n')
+        prev_usn=cur_usn
+--------------------------------------------------------------------------------
+
+File: reval_scraper.py
+--------------------------------------------------------------------------------
+# Importing the necessary libraries
+import cv2
+import numpy as np
+import pytesseract
+import time
+from PIL import Image
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from captcha_solver import captcha_og
+counter = 0
+usn_input_style = input('Enter the way you want to enter the USN data.\nIf you have a text file containing USN PRESS 1 \n If you have your usn list specified in the USN_Data.txt file PRESS 2 \n If you are providing range of USN PRESS 3\n')
+
+if usn_input_style == '1':
+    while True:
+        try:
+            locn = input(
+                'Provide the location of text file without any quotes\n')
+            with open(locn, 'r') as f:
+                my_list = [line.strip() for line in f]
+            break
+        except FileNotFoundError:
+            print("Invalid file location. Please try again.")
+
+elif usn_input_style == '2':
+    with open(r"Data\USN_Data.txt", 'r') as f:
+        my_list = [line.strip() for line in f]
+
+
+elif usn_input_style == '3':
+    first_bit = input('Enter the first bit of your college usn\n')
+    college = input("Enter the college code\n").upper()
+    year = input('Enter the year\n')
+    branch = input('Please enter the branch\n').upper()
+
+    while True:
+        try:
+            low = int(
+                input('Enter starting USN. If it starts from 001 enter it as 1\n'))
+            high = int(input('Enter last USN excluding Lateral Entry USN\n'))
+            lat_high = int(input(
+                'Enter last USN of lateral entry students (EX:417). If there are no lateral entry students enter 0\n'))
+            break
+        except ValueError:
+            print("Invalid input. Please enter integers only.")
+
+    my_list = []
+    if branch not in ['CS', 'EC', 'ME', 'CV', 'IS']:
+        print("Invalid branch code. Please try again.")
+    elif not year.isdigit() or int(year) < 17 or int(year) > 23:
+        print("Invalid year. Please enter an integer between 17 and 23.")
+    else:
+        for i in range(low, high+1):
+            if i < 10:
+                usn = first_bit + college + year + branch + '00' + str(i)
+            elif i < 100:
+                usn = first_bit + college + year + branch + '0' + str(i)
+            else:
+                usn = first_bit + college + year + branch + str(i)
+            my_list.append(usn)
+        if lat_high != 0:
+            for i in range(400, lat_high+1):
+                usn = first_bit + college + str(int(year)+1) + branch + str(i)
+                my_list.append(usn)
+
+
+# function to solve captcha
+def solve_captcha(driver):
+    div_element = driver.find_element_by_xpath(
+        '/html/body/div[2]/div[1]/div[2]/div/div[2]/form/div/div[2]/div[2]/div[2]/img')
+    div_element.screenshot(r'Data\Captcha\unsolved.png')
+
+    # load imge and set the bounds
+    img = cv2.imread(r'Data\Captcha\unsolved.png')
+    lower = (102, 102, 102)  # lower bound for each channel
+    upper = (125, 125, 125)  # upper bound for each channel
+
+    # create the mask and use it to change the colors
+    mask = cv2.inRange(img, lower, upper)
+    img[mask != 0] = [0, 0, 0]
+
+    # Save it
+    cv2.imwrite(r'Data\Captcha\semisolved.png', img)
+
+    img = Image.open(r'Data\Captcha\semisolved.png')  # get image
+    pixels = img.load()  # create the pixel map
+
+    for i in range(img.size[0]):  # for every pixel:
+        for j in range(img.size[1]):
+            if pixels[i, j] != (0, 0, 0):  # if not black:
+                pixels[i, j] = (255, 255, 255)  # change to white
+    # img.show()
+    img.save(r'Data\Captcha\solved.png')
+
+    # read image
+    img = cv2.imread(r'Data\Captcha\solved.png')
+
+    # configurations
+    config = ('-l eng --oem 1 --psm 3')
+
+    # pytessercat
+    pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+    text = pytesseract.image_to_string(img, config=config)
+
+    # print text
+    tes_captcha = text.split('\n')[0]
+    captcha = captcha_og()
+    if len(captcha) < 6:
+        return tes_captcha
+
+    return captcha
+
+
+student_no = len(my_list)
+
+for i in range(student_no):
+    count = 1
+    usn_no = my_list[i]
+    print("Currently trying to grab the results of "+usn_no)
+    repeat = True
+    while repeat:
+        # repeat=False
+        # configure web driver
+        options = webdriver.ChromeOptions()
+        options.add_argument('--headless')
+        options.add_argument('--no-sandbox')
+        options.add_argument('--disable-dev-shm-usage')
+
+# launch browser
+        driver = webdriver.Chrome(
+            'C:\chromedriver\chromedriver.exe', options=options)
+
+# load url
+        # add the url for the reval website page
+        url = 'https://results.vtu.ac.in/JJRVEcbcs23/index.php'
+        driver.get(url)
+        # wait for page to load
+        time.sleep(2)
+
+# solve captcha
+        captcha = solve_captcha(driver)
+# wait for result to load
+        time.sleep(2)
+
+# check if captcha is incorrect
+    # captcha_text_field = driver.find_element_by_name('captchacode')
+        if len(captcha) != 6:
+            # if captcha is incorrect, click refresh button and solve again
+            refresh_button = driver.find_element_by_xpath(
+                '/html/body/div[2]/div[1]/div[2]/div/div[2]/form/div/div[2]/div[2]/div[3]/p/a')
+            refresh_button.click()
+            time.sleep(2)
+            captcha = solve_captcha(driver)
+
+# enter usn
+        usn_text_field = driver.find_element_by_name('lns')
+        usn_text_field.send_keys(usn_no)  # CHANGE THIS LATER ON FOR DEBUGGING
+        captcha_text_field = driver.find_element_by_name('captchacode')
+        captcha_text_field.send_keys(captcha)
+
+# submit form
+        submit_button = driver.find_element_by_xpath(
+            '/html/body/div[2]/div[1]/div[2]/div/div[2]/form/div/div[2]/div[3]/div[1]/input')
+        submit_button.click()
+
+        try:
+            alert = driver.switch_to.alert
+            if alert.text == "University Seat Number is not available or Invalid..!":
+                # print("No results for : " + usn_no +" going to the next USN")
+                alert.accept()
+                driver.quit()
+                repeat = False  # proceed to next USN
+                break
+            elif alert.text == "You have not applied for reval or reval results are awaited !!!":
+                # print("No results for : " + usn_no +" going to the next USN")
+                alert.accept()
+                driver.quit()
+                repeat = False  # proceed to next USN
+                break
+            elif alert.text == "Invalid captcha code !!!":
+                # print("Invalid CAPTCHA Detected for USN : " + usn_no +".Retrying for the same USN")
+                count = count+1
+                alert.accept()
+                driver.quit()
+                continue  # repeat program for same USN again
+        except:
+            repeat = False  # proceed to next USN
+# wait for result to load
+        # time.sleep(8)
+        # element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, '/html/body/div[2]/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div[1]/div/table/tbody/tr[1]/td[2]')))
+        try:
+            element = WebDriverWait(driver, 10).until(EC.presence_of_element_located(
+                (By.XPATH, '/html/body/div[2]/form/div/div[2]/div/div/div[2]/div[1]/div/div/div[1]/div/table/tbody/tr[1]/td[2]')))
+        except:
+            # if timeout exception is raised, repeat the program for the same USN
+            count += 1
+            repeat = True
+            driver.quit()
+            continue  # repeat program for same USN again
+
+        stud_element = driver.find_element_by_xpath(
+            '/html/body/div[2]/form/div/div[2]/div/div/div[2]/div[1]/div/div/div[1]/div/table/tbody/tr[1]/td[2]')
+        
+        usn_element = driver.find_element_by_xpath(
+            '/html/body/div[2]/form/div/div[2]/div/div/div[2]/div[1]/div/div/div[1]/div/table/tbody/tr[2]/td[2]')
+        table_element = driver.find_element_by_xpath(
+            '/html/body/div[2]/form/div/div[2]/div/div/div[2]/div[1]/div/div/div[2]/div/div/div[2]/div')
+           # /html/body/div[2]/form/div/div[2]/div/div/div[2]/div[1]/div/div/div[2]/div/div/div[2]/div
+        sub_elements = table_element.find_elements_by_xpath('div')
+        num_sub_elements = len(sub_elements)
+        stud_text = stud_element.text
+        usn_text = usn_element.text
+
+        with open(r"Data\Reval_Results.txt", 'a') as file:
+            for i in range(2, num_sub_elements+1):
+                file.write(stud_text)
+                file.write(',')
+                file.write(usn_text)
+                marks=0
+                for j in [1, 2, 3, 8, 9]:
+                    data = driver.find_element_by_xpath(
+                        '/html/body/div[2]/form/div/div[2]/div/div/div[2]/div[1]/div/div/div[2]/div/div/div[2]/div/div['+str(i)+']/div['+str(j)+']')
+                    # /html/body/div[2]/form/div/div[2]/div/div/div[2]/div[1]/div/div/div[2]/div/div/div[2]/div/div['+str(i)+']/div['+str(j)+']'
+        
+                    data_text = data.text
+                    if (j==3 or j==8):
+                        
+                        marks=marks+int(data_text)
+                    file.write(',')
+                    if(j==9):
+                        file.write(str(marks))
+                        file.write(',')
+                    file.write(data_text)
+                file.write('\n')
+            file.write('\n')
+        print('Ran the program for '+str(count)+' times for this USN')
+        counter = counter+count
+        with open(r"Data\Completed.txt", 'a') as file:
+            file.write(usn_no)
+            file.write('\n')
+        file_path = r'Data\USN_Data.txt'
+        line_to_delete = usn_no+'\n'  # Replace with the line you want to delete
+
+        # Read the content of the file and store it in a list
+        with open(file_path, 'r') as file:
+            lines = file.readlines()
+
+        # Remove the line you want to delete from the list
+        lines = [line for line in lines if line != line_to_delete]
+
+        # Write the modified list back to the file
+        with open(file_path, 'w') as file:
+            file.writelines(lines)
+    # close browser
+    driver.quit()
+print("Ran for a Total of "+str(counter)+" times")
+
+--------------------------------------------------------------------------------
+
+File: scraper.py
+--------------------------------------------------------------------------------
+#Importing the necessary libraries
+import cv2
+import numpy as np
+import pytesseract
+import time
+from PIL import Image
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from captcha_solver import captcha_og
+counter=0
+usn_input_style=input('Enter the way you want to enter the USN data.\nIf you have a text file containing USN PRESS 1 \n If you have your usn list specified in the USN_Data.txt file PRESS 2 \n If you are providing range of USN PRESS 3\n')
+
+if usn_input_style == '1':
+    while True:
+        try:
+            locn = input('Provide the location of text file without any quotes\n') 
+            with open(locn, 'r') as f:
+                my_list = [line.strip() for line in f]
+            break
+        except FileNotFoundError:
+            print("Invalid file location. Please try again.")
+
+elif usn_input_style =='2':
+            with open(r"Data\USN_Data.txt",'r') as f:
+                my_list = [line.strip() for line in f]
+
+
+elif usn_input_style == '3':
+    first_bit = input('Enter the first bit of your college usn\n')
+    college = input("Enter the college code\n").upper()
+    year = input('Enter the year\n')
+    branch = input('Please enter the branch\n').upper()
+
+    while True:
+        try:
+            low = int(input('Enter starting USN. If it starts from 001 enter it as 1\n'))
+            high = int(input('Enter last USN excluding Lateral Entry USN\n'))
+            lat_high = int(input('Enter last USN of lateral entry students (EX:417). If there are no lateral entry students enter 0\n'))
+            break
+        except ValueError:
+            print("Invalid input. Please enter integers only.")
+
+    my_list = []
+    if branch not in ['CS', 'EC', 'ME', 'CV', 'IS']:
+        print("Invalid branch code. Please try again.")
+    elif not year.isdigit() or int(year) < 17 or int(year) > 23:
+        print("Invalid year. Please enter an integer between 17 and 23.")
+    else:
+        for i in range (low, high+1):
+            if i < 10:
+                usn = first_bit + college + year + branch + '00' + str(i)
+            elif i < 100:
+                usn = first_bit + college + year + branch + '0' + str(i)
+            else:
+                usn = first_bit + college + year + branch + str(i)
+            my_list.append(usn)
+        if lat_high != 0:
+            for i in range (400, lat_high+1):
+                usn = first_bit + college + str(int(year)+1) + branch + str(i)
+                my_list.append(usn)
+
+    
+#function to solve captcha
+def solve_captcha(driver):
+    div_element = driver.find_element_by_xpath('/html/body/div[2]/div[1]/div[2]/div/div[2]/form/div/div[2]/div[2]/div[2]/img')
+    div_element.screenshot(r'Data\Captcha\unsolved.png')
+
+    # load imge and set the bounds
+    img = cv2.imread(r'Data\Captcha\unsolved.png')
+    lower =(102, 102, 102) # lower bound for each channel
+    upper = (125,125, 125) # upper bound for each channel
+
+    # create the mask and use it to change the colors
+    mask = cv2.inRange(img, lower, upper)
+    img[mask != 0] = [0,0,0]
+
+    # Save it
+    cv2.imwrite(r'Data\Captcha\semisolved.png',img)
+
+    img = Image.open(r'Data\Captcha\semisolved.png') # get image
+    pixels = img.load() # create the pixel map
+
+    for i in range(img.size[0]): # for every pixel:
+        for j in range(img.size[1]):
+            if pixels[i,j] != (0,0,0): # if not black:
+                pixels[i,j] = (255, 255, 255) # change to white
+    #img.show()
+    img.save(r'Data\Captcha\solved.png')
+
+
+    # read image
+    img = cv2.imread(r'Data\Captcha\solved.png')
+
+    # configurations
+    config = ('-l eng --oem 1 --psm 3')
+
+    # pytessercat
+    pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+    text = pytesseract.image_to_string(img, config=config)
+
+    # print text
+    tes_captcha = text.split('\n')[0]
+    captcha=captcha_og()
+    if len(captcha) < 6 :
+        return tes_captcha
+
+    return captcha
+
+student_no=len(my_list)
+
+for i in range(student_no):
+    count=1
+    usn_no=my_list[i]
+    print("Currently trying to grab the results of "+usn_no)
+    repeat=True
+    while repeat:
+        #repeat=False
+        # configure web driver
+        options = webdriver.ChromeOptions()
+        #options.add_argument('--headless')
+        options.add_argument('--no-sandbox')
+        options.add_argument('--disable-dev-shm-usage')
+
+# launch browser
+        driver = webdriver.Chrome('C:\chromedriver\chromedriver.exe', options=options)
+
+# load url
+        url = 'https://results.vtu.ac.in/JJEcbcs23/resultpage.php' 
+        driver.get(url)
+        # wait for page to load
+        time.sleep(2)
+
+# solve captcha
+        captcha=solve_captcha(driver)
+# wait for result to load
+        time.sleep(2)
+
+# check if captcha is incorrect
+    #captcha_text_field = driver.find_element_by_name('captchacode')
+        if len(captcha) != 6:
+    # if captcha is incorrect, click refresh button and solve again
+            refresh_button = driver.find_element_by_xpath('/html/body/div[2]/div[1]/div[2]/div/div[2]/form/div/div[2]/div[2]/div[3]/p/a')
+            refresh_button.click()
+            time.sleep(2)
+            captcha=solve_captcha(driver)
+    
+# enter usn
+        usn_text_field = driver.find_element_by_name('lns')
+        usn_text_field.send_keys(usn_no)# CHANGE THIS LATER ON FOR DEBUGGING
+        captcha_text_field = driver.find_element_by_name('captchacode')
+        captcha_text_field.send_keys(captcha)
+
+# submit form
+        submit_button = driver.find_element_by_xpath('/html/body/div[2]/div[1]/div[2]/div/div[2]/form/div/div[2]/div[3]/div[1]/input')
+        submit_button.click()
+        
+        try:
+            alert = driver.switch_to.alert
+            if alert.text == "University Seat Number is not available or Invalid..!":
+                #print("No results for : " + usn_no +" going to the next USN")
+                alert.accept()
+                driver.quit()
+                repeat = False # proceed to next USN
+                break
+            elif alert.text == "Invalid captcha code !!!":
+                #print("Invalid CAPTCHA Detected for USN : " + usn_no +".Retrying for the same USN")
+                count=count+1
+                alert.accept()
+                driver.quit()
+                continue # repeat program for same USN again
+        except:
+            repeat = False # proceed to next USN
+# wait for result to load
+        #time.sleep(8)
+        #element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, '/html/body/div[2]/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div[1]/div/table/tbody/tr[1]/td[2]')))
+        try:
+            element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, '/html/body/div[2]/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div[1]/div/table/tbody/tr[1]/td[2]')))
+        except:
+            # if timeout exception is raised, repeat the program for the same USN
+            count += 1
+            repeat=True
+            driver.quit()
+            continue # repeat program for same USN again
+
+        stud_element = driver.find_element_by_xpath('/html/body/div[2]/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div[1]/div/table/tbody/tr[1]/td[2]')
+        usn_element = driver.find_element_by_xpath('/html/body/div[2]/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div[1]/div/table/tbody/tr[2]/td[2]')
+        table_element = driver.find_element_by_xpath('/html/body/div[2]/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div[2]/div/div/div[2]/div')
+        sub_elements = table_element.find_elements_by_xpath('div')
+        num_sub_elements = len(sub_elements)
+        stud_text = stud_element.text
+        usn_text = usn_element.text
+
+        with open(r"Data\Results.txt", 'a') as file:
+            for i in range (2,num_sub_elements+1):
+                file.write(stud_text)
+                file.write(',')
+                file.write(usn_text)
+                for j in range (1,7):
+                    data=driver.find_element_by_xpath('/html/body/div[2]/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div[2]/div/div/div[2]/div/div['+str(i)+']/div['+str(j)+']')
+                    data_text=data.text
+                    file.write(',')
+                    file.write(data_text)
+                file.write('\n')
+            file.write('\n')                
+        print('Ran the program for '+str(count)+' times for this USN')
+        counter=counter+count
+        with open(r"Data\Completed.txt", 'a') as file:
+            file.write(usn_no)
+            file.write('\n')
+        file_path = r'Data\USN_Data.txt'
+        line_to_delete = usn_no+'\n' # Replace with the line you want to delete
+
+        # Read the content of the file and store it in a list
+        with open(file_path, 'r') as file:
+            lines = file.readlines()
+    
+        # Remove the line you want to delete from the list
+        lines = [line for line in lines if line != line_to_delete]
+
+        # Write the modified list back to the file
+        with open(file_path, 'w') as file:
+            file.writelines(lines)
+    # close browser
+    driver.quit()
+print("Ran for a Total of "+str(counter)+" times")
+--------------------------------------------------------------------------------
+
+File: .bashrch
+--------------------------------------------------------------------------------
+export PATH=/home/gluonparticle/.vscode/extensions/ms-python.python-2024.14.1-linux-x64/python_files/deactivate/bash:/home/gluonparticle/Projects/.venv/bin:/home/gluonparticle/.vscode/extensions/ms-python.python-2024.14.1-linux-x64/python_files/deactivate/bash:/home/gluonparticle/Projects/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/opt/google/chrome
+
+--------------------------------------------------------------------------------
+
+File: .bashrc
+--------------------------------------------------------------------------------
+export PATH=/home/gluonparticle/.vscode/extensions/ms-python.python-2024.14.1-linux-x64/python_files/deactivate/bash:/home/gluonparticle/Projects/.venv/bin:/home/gluonparticle/.vscode/extensions/ms-python.python-2024.14.1-linux-x64/python_files/deactivate/bash:/home/gluonparticle/Projects/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/opt/google/chrome
+
+--------------------------------------------------------------------------------
+
+File: Data\Captcha\unsolved.png
+--------------------------------------------------------------------------------
+Error reading Data\Captcha\unsolved.png: 'utf-8' codec can't decode byte 0x89 in position 0: invalid start byte
+--------------------------------------------------------------------------------
+
+File: Data\Captcha\semisolved.png
+--------------------------------------------------------------------------------
+Error reading Data\Captcha\semisolved.png: 'utf-8' codec can't decode byte 0x89 in position 0: invalid start byte
+--------------------------------------------------------------------------------
+
+File: Data\Captcha\solved.png
+--------------------------------------------------------------------------------
+Error reading Data\Captcha\solved.png: 'utf-8' codec can't decode byte 0x89 in position 0: invalid start byte
+--------------------------------------------------------------------------------
+
+File: output-dir.py
+--------------------------------------------------------------------------------
+import os
+import logging
+
+# Configure logging to output to both the console and a file
+logging.basicConfig(level=logging.INFO, format='%(message)s')
+logger = logging.getLogger()
+file_handler = logging.FileHandler('output.txt')
+file_handler.setLevel(logging.INFO)
+file_handler.setFormatter(logging.Formatter('%(message)s'))
+logger.addHandler(file_handler)
+
+def print_directory_tree(root_dir, prefix=""):
+    for root, dirs, files in os.walk(root_dir):
+        level = root.replace(root_dir, '').count(os.sep)
+        indent = ' ' * 4 * (level)
+        logger.info('{}{}/'.format(indent, os.path.basename(root)))
+        sub_indent = ' ' * 4 * (level + 1)
+        for f in files:
+            logger.info('{}{}'.format(sub_indent, f))
+
+def output_file_contents(root_dir):
+    for root, dirs, files in os.walk(root_dir):
+        for file in files:
+            file_path = os.path.join(root, file)
+            relative_path = os.path.relpath(file_path, root_dir)
+            logger.info(f"\nFile: {relative_path}")
+            logger.info("-" * 80)
+            try:
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                    logger.info(content)
+            except (UnicodeDecodeError, IOError) as e:
+                logger.info(f"Error reading {relative_path}: {e}")
+            logger.info("-" * 80)
+
+def main():
+    root_dir = '/home/gluonparticle/Projects/Result-Analysis/References/VTU-Result_Scraper-CAPTCHA_Bypass-main'  # Change this to your root directory
+
+    logger.info("Directory Tree:")
+    print_directory_tree(root_dir)
+
+    logger.info("\nOutputting file contents...")
+    output_file_contents(root_dir)
+    logger.info("Done.")
+
+if __name__ == "__main__":
+    main()
+--------------------------------------------------------------------------------
+
+File: output.txt
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+
+File: Data/Completed.txt
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+
+File: Data/Marks.xlsx
+--------------------------------------------------------------------------------
+Error reading Data/Marks.xlsx: 'utf-8' codec can't decode byte 0xa4 in position 14: invalid start byte
+--------------------------------------------------------------------------------
+
+File: Data/Results.txt
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+
+File: Data/Reval_Results.txt
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+
+File: Data/Subject_Codes.txt
+--------------------------------------------------------------------------------
+18CS652,3,
+18EE653,3,
+18IM651,3,
+18ME651,3,
+18EC641,3,
+18EC644,3,
+18EC646,3,
+18EC61,4,
+18EC62,4,
+18EC63,4,
+18ECL66,2,
+18ECL67,2,
+18ECMP68,2
+
+--------------------------------------------------------------------------------
+
+File: Data/USN_Data.txt
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+
+File: Data/Captcha/semisolved.png
+--------------------------------------------------------------------------------
+Error reading Data/Captcha/semisolved.png: 'utf-8' codec can't decode byte 0x89 in position 0: invalid start byte
+--------------------------------------------------------------------------------
+
+File: Data/Captcha/solved.png
+--------------------------------------------------------------------------------
+Error reading Data/Captcha/solved.png: 'utf-8' codec can't decode byte 0x89 in position 0: invalid start byte
+--------------------------------------------------------------------------------
+
+File: Data/Captcha/unsolved.png
+--------------------------------------------------------------------------------
+Error reading Data/Captcha/unsolved.png: 'utf-8' codec can't decode byte 0x89 in position 0: invalid start byte
+--------------------------------------------------------------------------------
+
+File: Data/Captcha_Trained_Model/captcha_model.hdf5
+--------------------------------------------------------------------------------
+Error reading Data/Captcha_Trained_Model/captcha_model.hdf5: 'utf-8' codec can't decode byte 0x89 in position 0: invalid start byte
+--------------------------------------------------------------------------------
+
+File: Data/Captcha_Trained_Model/model_labels.dat
+--------------------------------------------------------------------------------
+Error reading Data/Captcha_Trained_Model/model_labels.dat: 'utf-8' codec can't decode byte 0x80 in position 0: invalid start byte
+--------------------------------------------------------------------------------
+
+File: Data/readme_data/Usn_data_demo.png
+--------------------------------------------------------------------------------
+Error reading Data/readme_data/Usn_data_demo.png: 'utf-8' codec can't decode byte 0x89 in position 0: invalid start byte
+--------------------------------------------------------------------------------
+
+File: Data/readme_data/result_demo.png
+--------------------------------------------------------------------------------
+Error reading Data/readme_data/result_demo.png: 'utf-8' codec can't decode byte 0x89 in position 0: invalid start byte
+--------------------------------------------------------------------------------
+
+File: Data/readme_data/subject_code_demo.png
+--------------------------------------------------------------------------------
+Error reading Data/readme_data/subject_code_demo.png: 'utf-8' codec can't decode byte 0x89 in position 0: invalid start byte
+--------------------------------------------------------------------------------
+
+File: __pycache__/captcha_solver.cpython-312.pyc
+--------------------------------------------------------------------------------
+Error reading __pycache__/captcha_solver.cpython-312.pyc: 'utf-8' codec can't decode byte 0xcb in position 0: invalid continuation byte
+--------------------------------------------------------------------------------
+
+File: __pycache__/helpers.cpython-312.pyc
+--------------------------------------------------------------------------------
+Error reading __pycache__/helpers.cpython-312.pyc: 'utf-8' codec can't decode byte 0xcb in position 0: invalid continuation byte
+--------------------------------------------------------------------------------
+Done.
