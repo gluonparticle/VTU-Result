@@ -1,4 +1,3 @@
-#Importing the necessary libraries
 import cv2
 import numpy as np
 import pytesseract
@@ -8,6 +7,8 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 from captcha_solver import captcha_og
 counter=0
 usn_input_style=input('Enter the way you want to enter the USN data.\nIf you have a text file containing USN PRESS 1 \n If you have your usn list specified in the USN_Data.txt file PRESS 2 \n If you are providing range of USN PRESS 3\n')
@@ -64,7 +65,8 @@ elif usn_input_style == '3':
     
 #function to solve captcha
 def solve_captcha(driver):
-    div_element = driver.find_element_by_xpath('/html/body/div[2]/div[1]/div[2]/div/div[2]/form/div/div[2]/div[2]/div[2]/img')
+    div_element = driver.find_element(By.XPATH,
+                                     '/html/body/div[2]/div[1]/div[2]/div/div[2]/form/div/div[2]/div[2]/div[2]/img')
     div_element.screenshot(r'Data\Captcha\unsolved.png')
 
     # load imge and set the bounds
@@ -122,12 +124,12 @@ for i in range(student_no):
         #options.add_argument('--headless')
         options.add_argument('--no-sandbox')
         options.add_argument('--disable-dev-shm-usage')
-
+        service = Service('C:\chromedriver\chromedriver.exe')
 # launch browser
-        driver = webdriver.Chrome('C:\chromedriver\chromedriver.exe', options=options)
+        driver = webdriver.Chrome(service=service, options=options)
 
 # load url
-        url = 'https://results.vtu.ac.in/JJEcbcs23/resultpage.php' 
+        url = 'https://results.vtu.ac.in/JJEcbcs24/resultpage.php' 
         driver.get(url)
         # wait for page to load
         time.sleep(2)
@@ -141,19 +143,20 @@ for i in range(student_no):
     #captcha_text_field = driver.find_element_by_name('captchacode')
         if len(captcha) != 6:
     # if captcha is incorrect, click refresh button and solve again
-            refresh_button = driver.find_element_by_xpath('/html/body/div[2]/div[1]/div[2]/div/div[2]/form/div/div[2]/div[2]/div[3]/p/a')
+            refresh_button = driver.find_element(By.XPATH, '/html/body/div[2]/div[1]/div[2]/div/div[2]/form/div/div[2]/div[2]/div[3]/p/a')
             refresh_button.click()
             time.sleep(2)
             captcha=solve_captcha(driver)
     
 # enter usn
-        usn_text_field = driver.find_element_by_name('lns')
+        usn_text_field = driver.find_element(By.NAME, 'lns')
         usn_text_field.send_keys(usn_no)# CHANGE THIS LATER ON FOR DEBUGGING
-        captcha_text_field = driver.find_element_by_name('captchacode')
+        captcha_text_field = driver.find_element(By.NAME, 'captchacode')
         captcha_text_field.send_keys(captcha)
 
 # submit form
-        submit_button = driver.find_element_by_xpath('/html/body/div[2]/div[1]/div[2]/div/div[2]/form/div/div[2]/div[3]/div[1]/input')
+        submit_button =  driver.find_element(By.XPATH,
+                                           '/html/body/div[2]/div[1]/div[2]/div/div[2]/form/div/div[2]/div[3]/div[1]/input')
         submit_button.click()
         
         try:
@@ -176,7 +179,7 @@ for i in range(student_no):
         #time.sleep(8)
         #element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, '/html/body/div[2]/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div[1]/div/table/tbody/tr[1]/td[2]')))
         try:
-            element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, '/html/body/div[2]/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div[1]/div/table/tbody/tr[1]/td[2]')))
+            element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, '/html/body/div[2]/div[2]/div[1]/div/div[2]/div[2]/div[1]/div/div/div[1]/div/table/tbody/tr[2]/td[2]')))
         except:
             # if timeout exception is raised, repeat the program for the same USN
             count += 1
@@ -184,10 +187,10 @@ for i in range(student_no):
             driver.quit()
             continue # repeat program for same USN again
 
-        stud_element = driver.find_element_by_xpath('/html/body/div[2]/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div[1]/div/table/tbody/tr[1]/td[2]')
-        usn_element = driver.find_element_by_xpath('/html/body/div[2]/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div[1]/div/table/tbody/tr[2]/td[2]')
-        table_element = driver.find_element_by_xpath('/html/body/div[2]/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div[2]/div/div/div[2]/div')
-        sub_elements = table_element.find_elements_by_xpath('div')
+        stud_element = driver.find_element(By.XPATH,'/html/body/div[2]/div[2]/div[1]/div/div[2]/div[2]/div[1]/div/div/div[1]/div/table/tbody/tr[2]/td[2]')   #/html/body/div[2]/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div[1]/div/table/tbody/tr[1]/td[2]
+        usn_element = driver.find_element(By.XPATH,'/html/body/div[2]/div[2]/div[1]/div/div[2]/div[2]/div[1]/div/div/div[1]/div/table/tbody/tr[1]/td[2]')    #/html/body/div[2]/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div[1]/div/table/tbody/tr[2]/td[2]
+        table_element = driver.find_element(By.XPATH,'/html/body/div[2]/div[2]/div[1]/div/div[2]/div[2]/div[1]/div/div/div[2]/div/div/div[2]/div')   #/html/body/div[2]/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div[2]/div/div/div[2]/div
+        sub_elements = table_element.find_elements(By.XPATH, 'div')
         num_sub_elements = len(sub_elements)
         stud_text = stud_element.text
         usn_text = usn_element.text
@@ -198,7 +201,7 @@ for i in range(student_no):
                 file.write(',')
                 file.write(usn_text)
                 for j in range (1,7):
-                    data=driver.find_element_by_xpath('/html/body/div[2]/div[2]/div[2]/div/div/div[2]/div[1]/div/div/div[2]/div/div/div[2]/div/div['+str(i)+']/div['+str(j)+']')
+                    data=driver.find_element(By.XPATH,'/html/body/div[2]/div[2]/div[1]/div/div[2]/div[2]/div[1]/div/div/div[2]/div/div/div[2]/div/div['+str(i)+']/div['+str(j)+']')
                     data_text=data.text
                     file.write(',')
                     file.write(data_text)
@@ -225,3 +228,14 @@ for i in range(student_no):
     # close browser
     driver.quit()
 print("Ran for a Total of "+str(counter)+" times")
+
+
+
+
+
+
+
+
+
+
+
