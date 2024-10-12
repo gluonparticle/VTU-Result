@@ -7,9 +7,9 @@ import cv2
 import pickle
 from matplotlib import pyplot
 def captcha_og():
-    MODEL_FILENAME = "Data/Captcha_Trained_Model/captcha_model.hdf5"
-    MODEL_LABELS_FILENAME = "Data/Captcha_Trained_Model/model_labels.dat"
-    CAPTCHA_IMAGE = "Data/Captcha/solved.png" 
+    MODEL_FILENAME = "Data\Captcha_Trained_Model\captcha_model.hdf5"
+    MODEL_LABELS_FILENAME = "Data\Captcha_Trained_Model\model_labels.dat"
+    CAPTCHA_IMAGE = "Data\Captcha\solved.png"
 
 
 # Load up the model labels (so we can translate model predictions to actual letters)

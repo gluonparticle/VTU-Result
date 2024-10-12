@@ -9,11 +9,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from captcha_solver import captcha_og
-
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-
-
 counter=0
 usn_input_style=input('Enter the way you want to enter the USN data.\nIf you have a text file containing USN PRESS 1 \n If you have your usn list specified in the USN_Data.txt file PRESS 2 \n If you are providing range of USN PRESS 3\n')
 
@@ -102,7 +97,7 @@ def solve_captcha(driver):
     config = ('-l eng --oem 1 --psm 3')
 
     # pytessercat
-    pytesseract.pytesseract.tesseract_cmd = r"/usr/bin/tesseract"
+    pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
     text = pytesseract.image_to_string(img, config=config)
 
     # print text
@@ -127,12 +122,12 @@ for i in range(student_no):
         #options.add_argument('--headless')
         options.add_argument('--no-sandbox')
         options.add_argument('--disable-dev-shm-usage')
-        service = Service(executable_path='/usr/bin/chromedriver') 
+
 # launch browser
-        driver = webdriver.Chrome(service=service, options=options) 
+        driver = webdriver.Chrome('C:\chromedriver\chromedriver.exe', options=options)
 
 # load url
-        url = 'https://results.vtu.ac.in/JJEcbcs24/resultpage.php' 
+        url = 'https://results.vtu.ac.in/JJEcbcs23/resultpage.php' 
         driver.get(url)
         # wait for page to load
         time.sleep(2)
