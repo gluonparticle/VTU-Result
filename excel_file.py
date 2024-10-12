@@ -1,59 +1,130 @@
-#this code splits each line of the results.txt file into a element of the list
-with open(r"Data\Results.txt", 'r') as file:
+import csv
+
+# Read and process the results
+with open(r"Data/RESULT.txt", 'r') as file:
     lines = file.readlines()
-data_list = [i for i in lines if i != '\n']#to remove spacing between two usn in text file
-data_list = [data_list.strip() for data_list in data_list]
 
-#the below code stores the sbject codes and their credits into their respective lists
-my_csv = open(r"Data\Subject_Codes.txt","r")     
-my_text = my_csv.read()
-sub_list = my_text.split(",")
-sub_list = [sub_list.strip() for sub_list in sub_list]
-#print(sub_list)
-sub_code=[]
-sub_grade=[]
+# Clean up the data
+cleaned_data = []
+for line in lines:
+    parts = line.split(',')
+    parts = [part.strip(': ').strip() for part in parts]
+    if len(parts) >= 7:  # Ensure there are enough parts to process
+        cleaned_data.append(parts)
 
-for i in range(0,len(sub_list)):
-    if(i%2==0):
-        sub_code.append(sub_list[i])
-    else:
-        sub_grade.append(int(sub_list[i]))
-#print(sub_code)
-#print(sub_grade)
-import openpyxl
-from openpyxl import *
-from openpyxl.utils import column_index_from_string
-from openpyxl.utils.cell import column_index_from_string, get_column_letter
-from openpyxl.styles import numbers
+# Extract unique subject codes
+unique_subject_codes = set()
+for parts in cleaned_data:
+    subject_code = parts[2]
+    unique_subject_codes.add(subject_code)
 
+# Define the subject credits dynamically
+subject_credits = {code: 3 for code in unique_subject_codes}  # Default credit value
 
-wb=load_workbook(r"Data\Marks.xlsx")
-sheets=wb.sheetnames#Get the list of all the sheets present in the xl workbook
-for sheet in sheets:
-    wb.remove(wb[str(sheet)])# removes all the existing sheets in the workbook
-for sub in sub_code:
-    wb.create_sheet(str(sub))#creates a sheet for the suject in the sub_code list
-    worksheet = wb[str(sub)]#loads the above created worksheet
-    worksheet_row=1         #starts from the first  row to store the data
-    for list_element in data_list: #goes through all the elemtns in the data_list which contains all the marks detail
-        if sub in list_element:                                 #it checks if the selected subject is the one which is present in the list_element
-            worksheet["A"+str(worksheet_row)] =list_element     #if yes it stores the data and then increases the row variable
-            worksheet_row=worksheet_row+1
-    '''Now all the data that is put into the excel sheets is present in the column 1 so now we split them 
-        and store them in the consecutive columns. After storing them in the successive colums we remove the subject code and subject columns from them 
-        as it is not necessary to have them and then save the workbook'''
-    for row in worksheet.iter_rows(min_row=1, max_row=worksheet.max_row, min_col=1, max_col=1): 
-        for cell in row:
-            col_index = cell.col_idx
-            col_letter = get_column_letter(col_index + 1)
-            values = cell.value.split(",")
-            for i, value in enumerate(values):
-                cell = worksheet.cell(row=cell.row, column=col_index + i)
-                if value.isnumeric():
-                    cell.value = int(value)
-                    cell.number_format = numbers.FORMAT_NUMBER
-                else:
-                    cell.value = value
-    worksheet.delete_cols(3,amount=2)#deleting subject name and its code
+# Update specific subject credits if known
+subject_credits.update({
+    "21CS61": 3, "21CS62": 4, "21IS63": 3, "21ISL66": 1, "21ISMP67": 2, "21INT68": 3,
+    "21IM652": 3, "21CS644": 3, "21IS643": 3
+})
+
+subject_codes = list(subject_credits.keys())
+
+# Create a dictionary to hold the student data
+students = {}
+
+for parts in cleaned_data:
+    name = parts[0]
+    usn = parts[1]
+    subject_code = parts[2]
+    internal_marks = parts[4]
+    external_marks = parts[5]
+    total_marks = parts[6]
     
-wb.save(r"Data\Marks.xlsx")
+    if usn not in students:
+        students[usn] = {"name": name, "subjects": {}}
+    
+    students[usn]["subjects"][subject_code] = (internal_marks, external_marks, total_marks)
+
+# Create the header row
+header = ["Student Name", "Student USN", "Section"]
+subject_header = ["", "", ""]
+
+for code in subject_codes:
+    subject_header.extend([code, "", "", ""])
+    header.extend(["IA-Marks", "Externals", "Total", "Class"])
+
+header.append("GPA")
+subject_header.append("")
+
+# Function to check if a string is a valid integer
+def is_valid_int(value):
+    try:
+        int(value)
+        return True
+    except ValueError:
+        return False
+
+# Function to calculate grade points
+def calculate_grade_point(marks):
+    if not is_valid_int(marks):
+        return 0
+    marks = int(marks)
+    if marks >= 90 and marks <= 100:
+        return 10
+    elif marks >= 80 and marks < 90:
+        return 9
+    elif marks >= 70 and marks < 80:
+        return 8
+    elif marks >= 60 and marks < 70:
+        return 7
+    elif marks >= 50 and marks < 60:
+        return 6
+    elif marks >= 45 and marks < 50:
+        return 5
+    elif marks >= 40 and marks < 45:
+        return 4
+    else:
+        return 0
+
+# Function to determine the class based on total marks
+def determine_class(total_marks):
+    if not is_valid_int(total_marks):
+        return "FAIL"
+    total_marks = int(total_marks)
+    if total_marks < 40:
+        return "FAIL"
+    elif total_marks < 50:
+        return "P SC"
+    elif total_marks < 60:
+        return "SC"
+    elif total_marks < 70:
+        return "FC"
+    else:
+        return "FCD"
+
+# Write the data to a CSV file
+with open(r"Data/Marks.csv", 'w', newline='') as csvfile:
+    writer = csv.writer(csvfile)
+    writer.writerow(subject_header)
+    writer.writerow(header)
+    
+    for usn, data in students.items():
+        row = [data["name"], usn, "A"]  # Assuming section "A" for all
+        total_grade_points = 0
+        total_credits = 0
+        
+        for code in subject_codes:
+            if code in data["subjects"]:
+                internal, external, total = data["subjects"][code]
+                row.extend([internal, external, total])
+                grade_point = calculate_grade_point(total)
+                total_grade_points += grade_point * subject_credits[code]
+                total_credits += subject_credits[code]
+                class_result = determine_class(total)
+                row.append(class_result)
+            else:
+                row.extend(["", "", "", ""])
+        
+        gpa = round(total_grade_points / total_credits, 2) if total_credits > 0 else 0
+        row.append(gpa)
+        writer.writerow(row)
